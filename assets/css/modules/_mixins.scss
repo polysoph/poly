@@ -1,0 +1,51 @@
+
+/**
+ * Shared sizing
+ */
+
+@mixin wrapper () {
+	margin: 0 auto;
+	max-width: $wrapper-width;
+}
+
+@mixin column-content () {
+	max-width: $content-width;
+}
+
+@mixin column-sidebar () {
+	max-width: $sidebar-width;
+}
+
+@mixin flex-space-between () {
+	display: flex;
+	justify-content: space-between;
+}
+
+/**
+ * Component
+ */
+
+@mixin icon ($url, $size: 20px) {
+	mask-image: url('/assets/icons/#{$url}.svg');
+	mask-repeat: no-repeat;
+	mask-size: contain;
+	width: $size;
+	height: $size;
+}
+
+/**
+ * Special States
+ */
+
+@mixin no-appearance () {
+	border: none;
+	outline: none;
+	appearance: none;
+}
+
+@mixin no-drag () {
+	-webkit-user-drag: none;
+	-moz-user-drag: none;
+	-ms-user-drag: none;
+	user-drag: none;
+}

@@ -1,0 +1,18 @@
+
+.category-badge {
+	$size: 28px;
+	background: $color-mathematics;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: $size;
+	height: $size;
+}
+
+.category-badge--mathematics::before {
+	@include icon("category-mathematics", 22px);
+	background: #fff;
+	content: "";
+	display: block;
+}

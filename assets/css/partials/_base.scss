@@ -1,0 +1,57 @@
+
+html {
+	background: $background-html;
+}
+
+body {
+	background: $background-body;
+	color: #242424;
+	font-family: $sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+
+//
+// Typography
+//
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	font-weight: normal;
+	text-rendering: optimizeLegibility;
+}
+
+p {
+	margin: 0;
+}
+
+a {
+	color: inherit;
+	outline: none;
+	text-decoration: none;
+}
+
+//
+// Graphics
+//
+
+img,
+svg,
+canvas {
+	max-width: 100%;
+	height: auto;
+	vertical-align: top;
+}
+
+//
+// Code
+//
+
+pre,
+code {
+	font-family: $monospace;
+	font-size: 12px;
+}

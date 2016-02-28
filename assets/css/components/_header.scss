@@ -1,0 +1,92 @@
+
+.header {
+	background: $blue-8;
+	padding: 12px 0;
+	color: #fff;
+}
+
+.header-wrapper {
+	@include flex-space-between();
+	margin: 0 auto;
+	max-width: $wrapper-width;
+}
+
+.header-content {
+	@include flex-space-between();
+	align-items: center;
+}
+
+.header-user {
+	@include flex-space-between();
+	align-items: center;
+}
+
+//
+// Logo
+//
+
+.header-logo {
+	display: flex;
+	align-items: center;
+	margin-right: 24px;
+	max-width: 24px;
+}
+
+//
+// Search
+//
+
+.header-search {
+	display: flex;
+	align-items: center;
+	margin-right: 32px;
+	background: $blue-9;
+	border-radius: $border-radius;
+	padding: 10px 4px 8px 12px;
+	width: 250px;
+}
+
+.header-search-input {
+	@include no-appearance();
+	background: transparent;
+	color: $blue-3;
+	font-size: 15px;
+	width: 100%;
+}
+
+.header-search-icon {
+	@include icon('search', 18px);
+	background: $blue-4;
+	margin-right: 8px;
+}
+
+//
+// Navigation
+//
+
+.header-nav {
+	color: $blue-3;
+	font-size: 14px;
+}
+
+.header-nav-link {
+	margin-right: 18px;
+}
+
+//
+// Profile
+//
+
+.header-profile {
+	display: flex;
+	align-items: center;
+}
+
+.header-profile-avatar {
+	max-width: 36px;
+}
+
+.header-profile-avatar img {
+	@include no-drag();
+	border-radius: 50%;
+}

@@ -1,0 +1,52 @@
+
+.comment {
+	display: flex;
+	margin: 0 0 24px;
+}
+
+.comment-aside {
+	margin-right: 16px;
+}
+
+.comment-body {
+	display: flex;
+	flex-direction: column;
+}
+
+.comment-header {
+	display: flex;
+	align-items: center;
+	margin-bottom: 6px;
+	font-family: $sans-serif;
+}
+
+.comment-header-user {
+	display: flex;
+	align-items: baseline;
+	line-height: 1.35;
+}
+
+.comment-header-user-name {
+	margin-right: 3px;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.comment-header-user-handle {
+	color: #999;
+	font-size: 13px;
+}
+
+.comment-header-metadata {
+	margin-left: 12px;
+	line-height: 1.0;
+}
+
+.comment-header-metadata-timestamp {
+	color: #999;
+	font-size: 13px;
+}
+
+.comment-contents {
+	@extend %markdown-content;
+}

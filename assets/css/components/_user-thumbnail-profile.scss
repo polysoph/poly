@@ -1,0 +1,19 @@
+
+.user-thumbnail-profile {
+	display: flex;
+	align-items: center;
+	font-family: $sans-serif;
+}
+
+.user-thumbnail-profile-image {
+	display: block;
+	background: #f2f2f2;
+	border-radius: 4px;
+	max-width: $user-avatar-size;
+	overflow: hidden;
+
+	img {
+		display: block;
+		opacity: 0.9;
+	}
+}

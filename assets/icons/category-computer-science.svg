@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.5.2 (25235) - http://www.bohemiancoding.com/sketch -->
+    <title>category-computer-science</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="category-computer-science" sketch:type="MSArtboardGroup" fill="#121212">
+            <path d="M19,4 L5,4 C4.44444444,4 4,4.44444444 4,5 L4,16 C4,16.5555556 4.44444444,17 5,17 L10,17 L10,17.962963 L7.18518519,19.3703704 C7.03703704,19.4444444 6.98148148,19.5925926 7,19.7407407 C7.03703704,19.8888889 7.18518519,20 7.33333333,20 L16.6666667,20 C16.8518519,20 17,19.8518519 17,19.6666667 C17,19.537037 16.9259259,19.4074074 16.7962963,19.3703704 L14,17.962963 L14,17 L19,17 C19.5555556,17 20,16.5555556 20,16 L20,5 C20,4.44444444 19.5555556,4 19,4 L19,4 Z M18,15 L6,15 L6,6 L18,6 L18,15 Z" id="computer" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

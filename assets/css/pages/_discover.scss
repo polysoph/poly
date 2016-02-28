@@ -1,0 +1,72 @@
+
+.discover-page {
+	@include wrapper();
+}
+
+.discover-questions {
+	@include column-content();
+
+	column-count: 2;
+	column-gap: 24px;
+}
+
+.discover-question {
+	// max-width: 260px;
+	padding-bottom: 24px;
+
+	break-inside: avoid-column;
+}
+
+.discover-question-header {
+	background: #777;
+	border-top-left-radius: $border-radius;
+	border-top-right-radius: $border-radius;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 16px;
+	min-height: 150px;
+	color: #fff;
+
+	.discover-question--computer-science & {
+		background: $color-computer-science;
+	}
+	.discover-question--astronomy & {
+		background: $color-astronomy;
+	}
+	.discover-question--mathematics & {
+		background: $color-mathematics;
+	}
+}
+
+.discover-question-category {
+	margin-bottom: 12px;
+	font-size: 13px;
+}
+
+.discover-question-title {
+	font-family: $serif;
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 1.35;
+}
+
+.discover-question-body {
+	background: #f2f2f2;
+	border-bottom-left-radius: $border-radius;
+	border-bottom-right-radius: $border-radius;
+	padding: 16px;
+}
+
+.discover-question-contents {
+	font-family: $serif;
+	font-size: 14px;
+}
+
+.discover-question-read-more {
+	display: block;
+	margin-top: 16px;
+	color: $blue;
+	font-size: 14px;
+	font-weight: bold;
+}
