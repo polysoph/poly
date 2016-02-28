@@ -2,7 +2,7 @@
 
 > A platform for open and collaborative research
 
-[![Circle CI](https://circleci.com/gh/polysoph/poly.svg?style=svg)](https://circleci.com/gh/polysoph/poly)
+[![Circle CI](https://circleci.com/gh/polysoph/polysoph.svg?style=svg)](https://circleci.com/gh/polysoph/poly)
 
 This project is still in it's early stages, but hopes to provide a set of tooling for researchers and universities to work better together on research projects, rather than competing for publishing the next big paper.
 
