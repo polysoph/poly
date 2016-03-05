@@ -20,9 +20,10 @@
 }
 
 %markdown-content {
-	font-family: $serif;
+	color: #444;
+	// font-family: $sans-serif;
 	font-size: 14px;
-	line-height: 1.6;
+	line-height: 1.65;
 
 	a {
 		color: $blue;
@@ -31,7 +32,7 @@
 	}
 
 	p + p {
-		margin-top: 1em;
+		margin-top: 0.8em;
 	}
 
 	ul,
@@ -48,5 +49,14 @@
 		border-left: 4px #f2f2f2 solid;
 		margin-left: 0;
 		padding-left: 1em;
+	}
+
+	.katex {
+		background: $gray-2;
+		border-radius: 3px;
+		padding: 0.05em 0.25em;
+		color: lighten($color-body-text, 10%);
+		font-size: 1.2em;
+		white-space: nowrap;
 	}
 }

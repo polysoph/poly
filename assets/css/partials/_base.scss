@@ -5,7 +5,7 @@ html {
 
 body {
 	background: $background-body;
-	color: #242424;
+	color: $color-body-text;
 	font-family: $sans-serif;
 	font-size: 16px;
 	line-height: 1.5;
@@ -13,6 +13,10 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+::selection {
+	background: #e5f5ff;
+	text-shadow: none;
+}
 
 //
 // Typography

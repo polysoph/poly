@@ -8,14 +8,20 @@
 
 <script>
 
-import data from '../tmp/users'
+import db from '../db'
 
 export default {
 	name: 'ProfileView',
 
 	data () {
 		return {
-			user: {}
+			user: {
+				id: 0,
+				name: '',
+				handle: '',
+				slug: '',
+				avatar: {}
+			}
 		}
 	},
 
@@ -27,9 +33,19 @@ export default {
 	},
 
 	route: {
-		data: t => {
-			const user = data.users.find(u => u.handle === t.to.params.user)
-			t.next({ user })
+		data (t) {
+			return db(`
+				query {
+					user(slug: "${t.to.params.slug}") {
+						id,
+						name,
+						handle,
+						avatar {
+							url
+						}
+					}
+				}
+			`)
 		}
 	}
 }

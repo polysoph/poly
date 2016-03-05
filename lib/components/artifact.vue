@@ -11,7 +11,6 @@
 
 <script>
 
-import data from '../tmp/users'
 import url from 'component-url'
 
 export default {

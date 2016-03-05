@@ -26,18 +26,33 @@
 
 <script>
 
-export default {
-	name: 'ComponentName',
+import db from '../../db'
 
-	props: {
-		question: {
-			type: Object,
-			required: true
+export default {
+	name: 'QuestionOverviewView',
+
+	data () {
+		return {
+			question: {
+				description: '',
+				significance: '',
+				priorWork: ''
+			}
 		}
 	},
 
-	data () {
-		return {}
+	route: {
+		data (t) {
+			return db(`
+				query {
+					question(slug: "${t.to.params.slug}") {
+						description,
+						significance,
+						priorWork
+					}
+				}
+			`)
+		}
 	}
 }
 

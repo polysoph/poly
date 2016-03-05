@@ -1,5 +1,5 @@
 
-$question-header-background: #d8d8d8;
+$question-header-background: #f0f0f0;
 
 .question {
 }
@@ -31,6 +31,7 @@ $question-header-background: #d8d8d8;
 }
 
 .question-header-category-badge {
+	background: $color-mathematics;
 	margin-right: 1em;
 }
 
@@ -47,18 +48,23 @@ $question-header-background: #d8d8d8;
 	align-items: baseline;
 }
 
-.question-header-nav {
-	@include flex-space-between();
-	align-items: baseline;
-	font-size: 14px;
+//
+// Question Content
+//
+
+.question-content-wrapper {
+	@include wrapper();
+	display: flex;
 }
 
 .question-subview-nav {
 	display: flex;
+	flex-direction: column;
 }
 
 .question-subview-link {
-	padding: 12px 18px 10px;
+	// padding: 12px 18px 10px;
+	font-size: 16px;
 	&.is-active {
 		background: #fff;
 		border-top-left-radius: $border-radius;
@@ -76,13 +82,15 @@ $question-header-background: #d8d8d8;
 	top: -1px;
 	margin-left: 8px;
 	color: $question-header-background;
+	font-weight: bold;
+	font-size: 11px;
 }
 
 .question-header-title {
 	margin-bottom: 1em;
-	max-width: 20em;
+	max-width: 18em;
 	font-family: $serif;
-	font-size: 32px;
+	font-size: 22px;
 	font-weight: normal;
 	line-height: 1.3;
 }

@@ -2,11 +2,11 @@
 <template>
 	<div class="question-discussion">
 		<div class="question-discussion-content">
-			<div class="question-timeline-loading" v-show="!question.comments.length">
+			<div class="question-timeline-loading" v-show="!hasComments">
 				Loading...
 			</div>
 			<div class="question-timeline">
-				<comment class="question-timeline-comment" :comment="comment" v-for="comment in question.comments"></comment>
+				<comment class="question-timeline-comment" v-for="comment in question.comments" :comment="comment" track-by="id"></comment>
 				<!-- <template v-for="entity in question.comments" track-by="id">
 					<template v-if="entity.type === 'artifact'">
 						<artifact class="question-timeline-artifact" :artifact="resolveComponent(entity.type, entity.ref)"></artifact>
@@ -19,10 +19,10 @@
 					</template>
 				</template> -->
 			</div>
-			<!-- <div class="question-comment-list" v-show="comments.length">
-				<comment v-for="comment in comments" track-by="id" :comment="comment"></comment>
+			<!-- <div class="question-comment-list" v-show="question.comments.length">
+				<comment v-for="comment in question.comments" track-by="id" :comment="comment"></comment>
 			</div> -->
-			<div class="question-timeline-prompt">
+			<div class="question-timeline-prompt" v-show="hasComments">
 				<p><a href="#">Sign up</a> or <a href="#">Sign in</a> to join the discussion.</p>
 			</div>
 		</div>
@@ -51,29 +51,43 @@ export default {
 		Checkpoint,
 	},
 
-	props: {
-		question: {
-			type: Object,
-			required: true
+	data () {
+		return {
+			question: {
+				id: 0,
+				comments: []
+			}
 		}
 	},
 
-	data () {
-		return {}
+	computed: {
+		hasComments () {
+			return this.question.comments.length > 0
+		}
 	},
 
-	asyncData (resolve, reject) {
-		return db(`
-			query {
-				question {
-					comments {
+	route: {
+		data (t) {
+			return db(`
+				query {
+					question(slug: "${t.to.params.slug}") {
 						id,
-						createdAt,
-						contents
+						comments {
+							id,
+							createdAt,
+							contents,
+							owner {
+								name,
+								handle,
+								avatar {
+									url
+								}
+							}
+						}
 					}
 				}
-			}
-		`)
+			`)
+		}
 	},
 
 	ready () {

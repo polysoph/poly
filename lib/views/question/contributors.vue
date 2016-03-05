@@ -1,28 +1,45 @@
 
 <template>
 	<div class="question-contributors-list">
-		<user-thumbnail-profile class="question-contributor" v-for="contributor in contributors" :user-id="contributor.id"></user-thumbnail-profile>
+		<a v-link="{ name: 'user', params: { slug: contributor.handle }}" class="avatar" v-for="contributor in question.contributors">
+			<img :src="contributor.avatar.url" class="avatar-image" />
+		</a>
 	</div>
 </template>
 
 <script>
 
-import UserThumbnailProfile from '../../components/user-thumbnail-profile.vue'
+import db from '../../db'
 
 export default {
 	name: 'QuestionContributorsView',
 
-	components: {
-		UserThumbnailProfile
-	},
-
 	data () {
-		return {}
+		return {
+			question: {
+				id: '',
+				contributors: []
+			}
+		}
 	},
 
-	computed: {
-		contributors () {
-			return this.$parent.contributors
+	route: {
+		data (t) {
+			return db(`
+				query {
+					question(slug: "${t.to.params.slug}") {
+						id,
+						contributors {
+							id,
+							name,
+							handle,
+							avatar {
+								url
+							}
+						}
+					}
+				}
+			`)
 		}
 	}
 }

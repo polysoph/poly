@@ -7,7 +7,7 @@
 				</a>
 				<div class="header-search">
 					<div class="header-search-icon"></div>
-					<input class="header-search-input" type="text" placeholder="Search..." />
+					<input class="header-search-input" type="text" placeholder="Search" />
 				</div>
 				<nav class="header-nav">
 					<a class="header-nav-link" v-link="{ path: '/#!' }">Feed</a>
@@ -20,7 +20,7 @@
 				</div>
 				<div class="header-profile">
 					<div class="header-profile-avatar">
-						<img :src="user.avatar.url" :alt="user.name" />
+						<img :src="currentUser.avatar.url" :alt="currentUser.name" />
 					</div>
 				</div>
 			</div>
@@ -36,8 +36,8 @@ export default {
 	name: 'Header',
 
 	computed: {
-		user () {
-			return store.user
+		currentUser () {
+			return store.state.user
 		}
 	}
 }

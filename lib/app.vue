@@ -20,13 +20,12 @@ export default {
 		AppHeader
 	},
 
-	data () {
-		return {}
-	},
-
 	computed: {
+		state () {
+			return store.state
+		},
 		user () {
-			return store.user
+			return store.state.user
 		}
 	}
 }

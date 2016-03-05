@@ -1,11 +1,28 @@
 
 .button {
-	background: $blue-8;
 	display: inline-block;
 	border-radius: $border-radius;
 	padding: 0.5em 1em;
-	color: #fff;
+	position: relative;
+	color: $blue-8;
 	font-size: 13px;
-	font-family: $sans-serif;
+	font-family: sans-serif;
 	font-weight: bold;
+}
+
+.button:not(.button--primary)::after {
+	content: '';
+	position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid $blue-8;
+	border-radius: $border-radius;
+}
+
+.button--primary {
+	background: $blue-8;
+	border: none;
+	color: #fff;
 }

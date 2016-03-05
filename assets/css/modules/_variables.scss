@@ -8,16 +8,21 @@ $background-body: #fff; // #e3e7e9
 $blue: #238ce8;
 $purple: #b77eed;
 
+$gray-2: #f5f5f5;
+$gray-8: #242424;
+
 $blue-3: #b9babf;
 $blue-4: #9a9da7;
 $blue-8: #36373d;
 $blue-9: #26272d;
 
+$color-body-text: $gray-8;
+
 /**
  * Typography
  */
 $serif: 'Tiempos', serif;
-$sans-serif: 'Akkurat', sans-serif;
+$sans-serif: 'Helvetica Neue', Arial, sans-serif;
 $monospace: 'Akkurat Mono', Menlo, monospace;
 
 /**
