@@ -8,26 +8,41 @@
 						<category-badge class="question-header-category-badge" category="mathematics"></category-badge>
 						<a class="question-header-category-title" v-link="{ name: 'discover:discipline', params: { discipline: 'mathematics' }}">Mathematics</a>
 					</div>
-					<div class="question-header-actions">
-						<a class="question-header-cite-button button cite-button" href="#!" @click.prevent>Cite</a>
-						<a class="question-header-follow-button button button--primary follow-button" href="#!" @click.prevent>Follow</a>
-					</div>
 				</div>
 				<div class="question-header-primary">
 					<h1 class="question-header-title">{{ question.title }}</h1>
+				</div>
+				<div class="question-header-actions">
+					<a class="question-header-cite-button cite-button" href="#!" @click.prevent>Cite</a>
+					<a class="question-header-follow-button follow-button" href="#!" @click.prevent>
+						<span class="follow-button-text">Follow</span>
+						<span class="follow-button-number">{{ question.followerCount }}</span>
+					</a>
 				</div>
 			</div>
 		</header>
 		<section class="question-content">
 			<div class="question-content-wrapper">
-				<nav class="question-subview-nav">
-					<a class="question-subview-link" v-link="{ name: 'question:overview', exact: true }">Overview</a>
-					<a class="question-subview-link" v-link="{ name: 'question:discussion' }">Discussion <span class="question-subview-link-badge" v-show="question.commentCount > 0">{{ question.commentCount }}</span></a>
-					<a class="question-subview-link" v-link="{ name: 'question:files' }">Artifacts</a>
-					<a class="question-subview-link" v-link="{ name: 'question:contributors' }">Contributors<span class="question-subview-link-badge" v-show="question.contributorCount > 0">{{ question.contributorCount }}</span></a>
+				<nav class="question-nav">
+					<div class="question-nav-group">
+						<a class="question-nav-link" v-link="{ name: 'question:overview', exact: true }">Question</a>
+					</div>
+					<div class="question-nav-group">
+						<a class="question-nav-link" v-link="{ name: 'question:milestones' }">Milestones</a>
+						<a class="question-nav-link" v-link="{ name: 'question:discussions' }">Discussions</a>
+						<a class="question-nav-link" v-link="{ name: 'question:tasks' }">Tasks</a>
+						<a class="question-nav-link" v-link="{ name: 'question:artifacts' }">Artifacts</a>
+					</div>
+					<div class="question-nav-group">
+						<a class="question-nav-link" v-link="{ name: 'question:contributors' }">Contributors</a>
+						<a class="question-nav-link" v-link="{ path: '#!' }">Metrics</a>
+					</div>
+					<div class="question-nav-group">
+						<a class="question-nav-link" v-link="{ path: '#!' }">Settings</a>
+					</div>
 				</nav>
 				<div class="question-subview">
-					<router-view :question="question"></router-view>
+					<router-view></router-view>
 				</div>
 			</div>
 		</section>
@@ -69,8 +84,7 @@ export default {
 						id,
 						title,
 						slug,
-						commentCount,
-						contributorCount
+						followerCount
 					}
 				}
 			`)

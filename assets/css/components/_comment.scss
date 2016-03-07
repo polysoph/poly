@@ -5,8 +5,8 @@
 }
 
 .comment-aside {
-	flex: 1 0 auto;
-	margin-right: 16px;
+	flex: 0 1 auto;
+	margin-right: 24px;
 }
 
 .comment-body {
@@ -50,4 +50,6 @@
 
 .comment-contents {
 	@extend %markdown-content;
+	font-family: $serif;
+	font-size: 14px;
 }

@@ -1,9 +1,20 @@
 
 <template>
-	<h3>Profile</h3>
-	<img :src="avatarUrl" />
-	<p>{{ user.name }} (@{{ user.handle }})</p>
-	<p>{{ user.institution }}</p>
+	<div class="profile">
+		<aside class="profile-user">
+			<div class="profile-user-avatar">
+				<img class="user-profile-avatar" :src="avatarUrl" />
+			</div>
+			<div class="profile-user-identity">
+				<div class="profile-user-name">{{ user.name }}</div>
+				<div class="profile-user-handle">@{{ user.handle }}</div>
+			</div>
+			<div class="profile-user-institution">{{ user.institution }}</div>
+		</aside>
+		<main class="profile-activity">
+			<h2>Hi</h2>
+		</main>
+	</div>
 </template>
 
 <script>
@@ -36,16 +47,20 @@ export default {
 		data (t) {
 			return db(`
 				query {
-					user(slug: "${t.to.params.slug}") {
+					user(handle: "${t.to.params.slug}") {
 						id,
 						name,
 						handle,
+						institution,
 						avatar {
 							url
 						}
 					}
 				}
-			`)
+			`).then(res => {
+				console.log(res)
+				return res
+			})
 		}
 	}
 }

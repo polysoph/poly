@@ -1,0 +1,55 @@
+
+//
+// Question Nav
+//
+
+.question-nav {
+	@include flex-column();
+	flex: 0 0 120px;
+	margin-right: 60px;
+}
+
+.question-nav-group {
+	$spacing: 20px;
+	@include flex-column();
+	position: relative;
+	margin-bottom: $spacing;
+	&:not(:last-child)::after {
+		content: '';
+		position: absolute;
+		bottom: -$spacing/2;
+		width: 90px;
+		height: 1px;
+		background: #f7f7f7;
+	}
+}
+
+.question-nav-link {
+	padding: 3px 0;
+	color: #777;
+	font-size: 13px;
+	line-height: 1.5;
+	font-weight: 500;
+	&:hover {
+		color: #555;
+	}
+	&.is-active {
+		position: relative;
+		// top: -1px;
+		color: #333;
+		font-weight: bold;
+	}
+	&.is-active .question-subview-link-badge {
+		color: #fff;
+	}
+}
+
+.question-nav-link-badge {
+	@extend %badge;
+	position: relative;
+	top: -1px;
+	margin-left: 8px;
+	color: $question-header-background;
+	font-weight: bold;
+	font-size: 11px;
+}

@@ -22,13 +22,25 @@
 %markdown-content {
 	color: #444;
 	// font-family: $sans-serif;
-	font-size: 14px;
+	font-size: 15px;
 	line-height: 1.65;
 
 	a {
+		display: inline-block;
 		color: $blue;
 		outline: none;
 		// border-bottom: 1px currentColor solid;
+		&:hover {
+			line-height: 1.2;
+			border-bottom: 1px lighten($blue, 20%) solid;
+		}
+	}
+
+	h3 {
+		margin-top: 1.7em;
+		margin-bottom: 1.2em;
+		font-weight: bold;
+		font-size: 1.1em;
 	}
 
 	p + p {
@@ -52,11 +64,30 @@
 	}
 
 	.katex {
-		background: $gray-2;
-		border-radius: 3px;
-		padding: 0.05em 0.25em;
+		padding: 0;
 		color: lighten($color-body-text, 10%);
-		font-size: 1.2em;
+		font-size: 1.1em;
+	}
+
+	.katex-html {
+		padding: 0 0.35em;
+		border-radius: 3px;
+		background: $gray-2;
 		white-space: nowrap;
+	}
+
+	.katex-display {
+		& > .katex {
+			display: block;
+		}
+		.katex-html {
+			display: block;
+			padding: 0.75em 0.25em;
+		}
+	}
+
+	strong {
+		color: #333;
+		font-weight: 500;
 	}
 }

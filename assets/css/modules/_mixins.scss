@@ -3,22 +3,27 @@
  * Shared sizing
  */
 
-@mixin wrapper () {
+@mixin wrapper {
 	margin: 0 auto;
 	max-width: $wrapper-width;
 }
 
-@mixin column-content () {
+@mixin column-content {
 	max-width: $content-width;
 }
 
-@mixin column-sidebar () {
+@mixin column-sidebar {
 	max-width: $sidebar-width;
 }
 
-@mixin flex-space-between () {
+@mixin flex-space-between {
 	display: flex;
 	justify-content: space-between;
+}
+
+@mixin flex-column {
+	display: flex;
+	flex-direction: column;
 }
 
 /**
@@ -33,17 +38,21 @@
 	height: $size;
 }
 
+@mixin badge-count {
+	// TODO
+}
+
 /**
  * Special States
  */
 
-@mixin no-appearance () {
+@mixin no-appearance {
 	border: none;
 	outline: none;
 	appearance: none;
 }
 
-@mixin no-drag () {
+@mixin no-drag {
 	-webkit-user-drag: none;
 	-moz-user-drag: none;
 	-ms-user-drag: none;

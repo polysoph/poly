@@ -1,0 +1,10 @@
+
+.line-chart {
+	background: lighten($blue, 20%);
+	border-radius: 4px;
+}
+
+.line-chart .line {
+	fill: none;
+	stroke: #fff;
+}

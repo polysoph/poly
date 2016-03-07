@@ -10,7 +10,7 @@
 			<header class="comment-header">
 				<a class="comment-header-user" v-link="{ name: 'user', params: { slug: comment.owner.handle }}">
 					<div class="comment-header-user-name">{{ comment.owner.name }}</div>
-					<div class="comment-header-user-handle">@{{ comment.owner.handle }}</div>
+					<!-- <div class="comment-header-user-handle">@{{ comment.owner.handle }}</div> -->
 				</a>
 				<div class="comment-header-metadata">
 					<a class="comment-header-metadata-timestamp" href="#comment-{{ comment.id }}">{{ comment.timestamp | date 'MMM D' }}</a>

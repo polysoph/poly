@@ -11,6 +11,8 @@
 import router from './router'
 import store from './store'
 
+import tooltip from 'tlite'
+
 import AppHeader from './components/header.vue'
 
 export default {
@@ -27,6 +29,13 @@ export default {
 		user () {
 			return store.state.user
 		}
+	},
+
+	ready () {
+		tooltip(el => {
+			if (!el.hasAttribute('tooltip')) return false
+			return { grav: 's' }
+		})
 	}
 }
 

@@ -1,12 +1,15 @@
 
 <template>
 	<div class="question-discussion">
-		<div class="question-discussion-content">
-			<div class="question-timeline-loading" v-show="!hasComments">
-				Loading...
-			</div>
-			<div class="question-timeline">
-				<comment class="question-timeline-comment" v-for="comment in question.comments" :comment="comment" track-by="id"></comment>
+		<div class="question-discussion-timeline-loading" v-show="!hasComments">
+			Loading...
+		</div>
+		<main class="question-discussion-content" v-show="hasComments">
+			<header class="question-discussion-header">
+				<div class="question-discussion-title">{{ discussion.title }}</div>
+			</header>
+			<div class="question-discussion-timeline">
+				<comment class="question-discussion-comment" v-for="comment in discussion.comments" :comment="comment" track-by="id"></comment>
 				<!-- <template v-for="entity in question.comments" track-by="id">
 					<template v-if="entity.type === 'artifact'">
 						<artifact class="question-timeline-artifact" :artifact="resolveComponent(entity.type, entity.ref)"></artifact>
@@ -22,10 +25,10 @@
 			<!-- <div class="question-comment-list" v-show="question.comments.length">
 				<comment v-for="comment in question.comments" track-by="id" :comment="comment"></comment>
 			</div> -->
-			<div class="question-timeline-prompt" v-show="hasComments">
+			<div class="question-discussion-prompt">
 				<p><a href="#">Sign up</a> or <a href="#">Sign in</a> to join the discussion.</p>
 			</div>
-		</div>
+		</main>
 		<div class="question-discussion-navigation">
 		</div>
 	</div>
@@ -55,14 +58,19 @@ export default {
 		return {
 			question: {
 				id: 0,
-				comments: []
+				discussion: {
+					comments: []
+				}
 			}
 		}
 	},
 
 	computed: {
+		discussion () {
+			return this.question.discussion
+		},
 		hasComments () {
-			return this.question.comments.length > 0
+			return this.discussion.comments.length > 0
 		}
 	},
 
@@ -72,21 +80,33 @@ export default {
 				query {
 					question(slug: "${t.to.params.slug}") {
 						id,
-						comments {
+						discussion(id: ${t.to.params.id}) {
 							id,
-							createdAt,
-							contents,
+							title,
 							owner {
+								id,
 								name,
-								handle,
-								avatar {
-									url
+								handle
+							},
+							comments {
+								id,
+								createdAt,
+								contents,
+								owner {
+									name,
+									handle,
+									avatar {
+										url
+									}
 								}
 							}
 						}
 					}
 				}
-			`)
+			`).then(res => {
+				console.log(res)
+				return res
+			})
 		}
 	},
 

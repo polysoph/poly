@@ -36,8 +36,8 @@ export default {
 						id,
 						title,
 						slug,
+						summary
 						description,
-						significance,
 						category {
 							id,
 							title,

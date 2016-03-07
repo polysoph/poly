@@ -1,0 +1,42 @@
+
+<template>
+	<div class="discussion-preview">
+		<div class="discussion-preview-content">
+			<a class="discussion-preview-title" v-link="linkToDiscussion">{{ discussion.title }}</a>
+			<div class="discussion-preview-by-line">
+				<a class="discussion-preview-last-updated-at" v-link="linkToDiscussion">Last updated {{ discussion.lastUpdatedAt | dateFromNow }}</a>
+			</div>
+		</div>
+		<div class="discussion-preview-meta">
+			<div class="discussion-preview-user-avatars">
+				<a class="discussion-preview-user-avatar user-profile user-profile--avatar-only" v-link="{ name: 'user', params: { slug: user.handle } }" v-for="user in discussion.participants">
+					<img class="user-profile-avatar" :src="user.avatar.url" />
+				</a>
+			</div>
+			<a v-link="linkToDiscussion" class="discussion-preview-comment-count ss-chat">{{ discussion.commentCount }}</a>
+		</div>
+	</div>
+</template>
+
+<script>
+
+import _ from 'lodash'
+
+export default {
+	name: 'DiscussionPreview',
+
+	props: {
+		discussion: {
+			type: Object,
+			required: true
+		}
+	},
+
+	computed: {
+		linkToDiscussion () {
+			return { name: 'question:discussion', params: { id: this.discussion.id } }
+		}
+	}
+}
+
+</script>

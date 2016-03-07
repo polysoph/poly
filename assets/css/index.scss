@@ -21,7 +21,11 @@
 @import "components/header";
 @import "components/avatar";
 @import "components/category-badge";
+@import "components/user-profile";
+@import "components/line-chart";
+@import "components/tooltip";
 
+@import "components/discussion-preview";
 @import "components/question-preview";
 
 @import "components/artifact";
@@ -30,3 +34,4 @@
 
 @import "pages/discover";
 @import "pages/question";
+@import "pages/profile";

@@ -1,0 +1,47 @@
+
+//
+// Question Discussion(s)
+//
+
+.question-discussion-preview {
+	&:not(:first-child) {
+		border-top: 1px $gray-2 solid;
+	}
+}
+
+.question-discussion-content {
+	@include column-content();
+}
+
+.question-discussion-title {
+	font-size: 24px;
+	margin-bottom: 14px;
+}
+
+// .question-timeline-artifact,
+// .question-timeline-checkpoint {
+// 	margin-bottom: 36px;
+// 	padding-top: 36px;
+// 	padding-left: 96px;
+// 	&:not(:first-child) {
+// 		border-top: 2px #f9f9f9 solid;
+// 	}
+// }
+
+.question-discussion-prompt {
+	background: #f2f2f2;
+	border-radius: $border-radius;
+	margin-top: 48px;
+	padding: 16px;
+	font-family: $sans-serif;
+	font-size: 13px;
+	text-align: center;
+	a {
+		color: $blue;
+	}
+}
+
+.question-discussion-comment {
+	padding-top: 24px;
+	border-top: 1px #f2f2f2 solid;
+}

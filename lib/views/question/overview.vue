@@ -1,26 +1,55 @@
 <template>
 	<div class="question-overview">
-		<div class="question-overview-content">
-			<!-- <section class="question-description-section question-description-section-context">
-				<h3>Context</h3>
-				<div class="question-description-section-context-content" v-html="$parent.context | markdown"></div>
-			</section> -->
-			<section class="question-description-section question-description-section-description">
-				<h3>About the Question</h3>
-				<div class="question-description-section-description-content" v-html="question.description | markdown"></div>
-			</section>
-			<section class="question-description-section question-description-section-significance">
-				<h3>Significance</h3>
-				<div class="question-description-section-significance-content" v-html="question.significance | markdown"></div>
-			</section>
-			<h3>Prior Work</h3>
-			<p>A listing of previous papers and developments in the field that would be beneficial for people contributing.</p>
-		</div>
-		<div class="question-overview-sidebar">
-			<div class="question-overview-sidebar-contributors">
-				<h4>Contributors</h4>
+		<main class="question-overview-content">
+			<section class="question-overview-content-summary" v-html="question.summary | markdown"></section>
+			<section class="question-overview-content-description" v-html="question.description | markdown"></section>
+		</main>
+		<aside class="question-overview-sidebar">
+			<div class="question-overview-sidebar-contribute question-overview-sidebar-section">
+				<a class="question-overview-sidebar-contribute-button" v-link="{ name: 'question:tasks' }">Join Project</a>
+				<div class="question-overview-sidebar-contribute-status">This project is actively seeking contributions from non-members.</div>
 			</div>
-		</div>
+			<div class="question-overview-sidebar-metrics question-overview-sidebar-section">
+				<a class="question-overview-sidebar-metrics-block" v-link="{ name: 'question:milestones' }">
+					<span class="question-overview-sidebar-metrics-block-number">{{ question.milestoneCount }}</span>
+					<span class="question-overview-sidebar-metrics-block-label">Milestones</span>
+				</a>
+				<a class="question-overview-sidebar-metrics-block" href="#!">
+					<span class="question-overview-sidebar-metrics-block-number">{{ question.citationCount }}</span>
+					<span class="question-overview-sidebar-metrics-block-label">Citations</span>
+				</a>
+			</div>
+			<div class="question-overview-sidebar-people question-overview-sidebar-section">
+				<div class="question-overview-sidebar-people-owners question-overview-sidebar-people-group">
+					<div class="question-overview-sidebar-people-header">
+						<div class="question-overview-sidebar-people-header-label">Owners</div>
+						<div class="question-overview-sidebar-people-header-count">{{ question.owners.length }}</div>
+					</div>
+					<div class="question-overview-sidebar-people-list">
+						<a class="user-profile user-profile--medium" v-link="{ name: 'user', params: { slug: user.handle }}" v-for="user in question.owners">
+							<div class="user-profile-avatar"><img :src="user.avatar.url" /></div>
+							<div class="user-profile-details">
+								<div class="user-profile-handle">{{ user.handle }}</div>
+								<div class="user-profile-institution">{{ user.institution }}</div>
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="question-overview-sidebar-people-contributors question-overview-sidebar-people-group">
+					<div class="question-overview-sidebar-people-header">
+						<div class="question-overview-sidebar-people-header-label">Contributors</div>
+						<div class="question-overview-sidebar-people-header-count">{{ question.contributors.length }}</div>
+					</div>
+					<div class="question-overview-sidebar-people-list">
+						<a class="user-profile user-profile--avatar-only" v-link="{ name: 'user', params: { slug: user.handle }}" v-for="user in question.contributors">
+							<div class="user-profile-avatar"><img :src="user.avatar.url" /></div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="question-overview-sidebar-keywords question-overview-sidebar-section">
+			</div>
+		</aside>
 	</div>
 </template>
 
@@ -34,9 +63,12 @@ export default {
 	data () {
 		return {
 			question: {
+				summary: '',
 				description: '',
-				significance: '',
-				priorWork: ''
+				milestoneCount: 0,
+				citationCount: 0,
+				owners: [],
+				contributors: []
 			}
 		}
 	},
@@ -46,9 +78,27 @@ export default {
 			return db(`
 				query {
 					question(slug: "${t.to.params.slug}") {
+						summary,
 						description,
-						significance,
-						priorWork
+						milestoneCount,
+						citationCount,
+						owners {
+							id,
+							name,
+							handle,
+							institution,
+							avatar {
+								url
+							}
+						},
+						contributors {
+							id,
+							name,
+							handle,
+							avatar {
+								url
+							}
+						}
 					}
 				}
 			`)

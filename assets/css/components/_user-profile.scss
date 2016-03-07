@@ -1,0 +1,54 @@
+
+.user-profile {
+	display: flex;
+	align-items: center;
+	align-content: stretch;
+}
+
+.user-profile--avatar-only {
+	.user-profile-avatar {
+		max-width: 24px;
+	}
+}
+
+.user-profile--medium {
+	.user-profile-avatar {
+		max-width: 36px;
+		margin-right: 12px;
+	}
+}
+
+.user-profile-avatar {
+	display: block;
+	flex: 1 0 auto;
+	background: #f2f2f2;
+	border-radius: 3px;
+
+	overflow: hidden;
+
+	img {
+		display: block;
+	}
+}
+
+.user-profile-details {
+	margin-right: auto;
+	display: flex;
+	flex: 0 1 auto;
+	flex-direction: column;
+	font-size: 12px;
+	overflow: hidden;
+}
+
+.user-profile-handle {
+	color: $blue;
+	font-weight: bold;
+}
+
+.user-profile-institution {
+	color: $gray-4;
+	line-height: 1.2;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}

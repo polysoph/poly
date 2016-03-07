@@ -18,11 +18,11 @@
 			<div class="header-user">
 				<div clas="header-notifications">
 				</div>
-				<div class="header-profile">
+				<a class="header-profile" v-link="{ name: 'user', params: { slug: currentUser.handle }}">
 					<div class="header-profile-avatar">
 						<img :src="currentUser.avatar.url" :alt="currentUser.name" />
 					</div>
-				</div>
+				</a>
 			</div>
 		</div>
 	</header>

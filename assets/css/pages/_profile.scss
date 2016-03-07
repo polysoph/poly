@@ -1,0 +1,30 @@
+
+.profile {
+	@include wrapper;
+	display: flex;
+	padding-top: 40px;
+}
+
+.profile-user {
+	flex: 0 1 210px;
+}
+
+.profile-user-avatar {
+	margin-bottom: 18px;
+}
+
+.profile-user-identity {
+	display: flex;
+	align-items: baseline;
+}
+
+.profile-user-name {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.profile-user-handle {
+	margin-left: 6px;
+	color: #555;
+	font-size: 14px;
+}

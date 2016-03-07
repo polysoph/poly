@@ -1,0 +1,70 @@
+
+//
+// Question Content / Subview
+//
+
+.question-content-wrapper {
+	@include wrapper();
+	display: flex;
+}
+
+.question-subview {
+	flex-grow: 1;
+	margin-bottom: 96px;
+}
+
+.question-subview-header {
+	// font-family: $sans-serif;
+	border-bottom: 1px $gray-2 solid;
+}
+
+.question-subview-masthead {
+	@include flex-space-between;
+	margin-bottom: 18px;
+}
+
+.question-subview-title {
+	position: relative;
+	left: -1px;
+	font-size: 19px;
+	// font-weight: bold;
+	letter-spacing: -0.015em;
+}
+
+.question-subview-title-help {
+	margin-left: 0.5em;
+	cursor: pointer;
+	color: #999;
+	font-size: 12px;
+	vertical-align: middle;
+	&:hover {
+		color: #aaa;
+	}
+}
+
+.question-subview-filter-bar {
+	display: flex;
+	color: #555;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.question-subview-filter-category {
+	margin-right: 14px;
+	padding-bottom: 6px;
+	&-count {
+		padding-right: 1px;
+	}
+	&.is-active {
+		border-bottom: 2px $green solid;
+		color: $green;
+	}
+}
+
+.question-subview-search {
+	@include no-appearance;
+	background: #f2f2f2;
+	border-radius: 4px;
+	padding: 10px 12px;
+	font-size: 13px;
+}

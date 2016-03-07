@@ -10,7 +10,7 @@
 		</header>
 		<section class="discover-question-body">
 			<div class="discover-question-contents">
-				<p class="discover-question-description" v-html="question.significance | markdown | truncate 150"></p>
+				<p class="discover-question-description" v-html="question.summary | markdown | truncate 150"></p>
 			</div>
 			<a class="discover-question-read-more" v-link="{ name: 'question', params: { slug: question.slug } }">Read More</a>
 		</section>
