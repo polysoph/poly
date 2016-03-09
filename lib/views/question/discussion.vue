@@ -6,27 +6,30 @@
 		</div>
 		<main class="question-discussion-content" v-show="hasComments">
 			<header class="question-discussion-header">
-				<div class="question-discussion-title">{{ discussion.title }}</div>
+				<div class="question-discussion-subview">
+					<div class="question-discussion-title">{{ discussion.title }}</div>
+					<div class="question-discussion-subtitle">
+						Started by
+						<span class="question-discussion-author">{{ discussion.firstComment.owner.name }}</span>
+						on
+						<span class="question-discussion-created-at">{{ discussion.firstComment.createdAt | date 'MMM D, Y'}}</span>
+						•
+						<span class="question-discussion-count">{{ discussion.commentCount }} comments</span>
+					</div>
+				</div>
 			</header>
 			<div class="question-discussion-timeline">
-				<comment class="question-discussion-comment" v-for="comment in discussion.comments" :comment="comment" track-by="id"></comment>
-				<!-- <template v-for="entity in question.comments" track-by="id">
-					<template v-if="entity.type === 'artifact'">
-						<artifact class="question-timeline-artifact" :artifact="resolveComponent(entity.type, entity.ref)"></artifact>
+				<template v-for="entity in discussion.timeline" track-by="id">
+					<template v-if="entity.contents">
+						<comment class="question-timeline-comment" :comment="entity"></comment>
 					</template>
-					<template v-if="entity.type === 'checkpoint'">
-						<checkpoint class="question-timeline-checkpoint" :checkpoint="resolveComponent(entity.type, entity.ref)">></checkpoint>
+					<template v-if="entity.type">
+						<action class="question-timeline-action" :action="entity"></action>
 					</template>
-					<template v-if="entity.type === 'comment'">
-						<comment class="question-timeline-comment" :comment="resolveComponent(entity.type, entity.ref)">></comment>
-					</template>
-				</template> -->
+				</template>
 			</div>
-			<!-- <div class="question-comment-list" v-show="question.comments.length">
-				<comment v-for="comment in question.comments" track-by="id" :comment="comment"></comment>
-			</div> -->
 			<div class="question-discussion-prompt">
-				<p><a href="#">Sign up</a> or <a href="#">Sign in</a> to join the discussion.</p>
+				<p><a href="#" @click.prevent>Sign up</a> or <a v-link="{ name: 'login' }">Sign in</a> to join the discussion.</p>
 			</div>
 		</main>
 		<div class="question-discussion-navigation">
@@ -38,8 +41,8 @@
 
 import db from '../../db'
 
+import Action from '../../components/action.vue'
 import Comment from '../../components/comment.vue'
-import Checkpoint from '../../components/checkpoint.vue'
 import Artifact from '../../components/artifact.vue'
 
 import select from '../../helpers/select'
@@ -49,9 +52,9 @@ export default {
 	name: 'QuestionDiscussionView',
 
 	components: {
+		Action,
 		Artifact,
 		Comment,
-		Checkpoint,
 	},
 
 	data () {
@@ -59,7 +62,10 @@ export default {
 			question: {
 				id: 0,
 				discussion: {
-					comments: []
+					firstComment: {
+						owner: {}
+					},
+					timeline: []
 				}
 			}
 		}
@@ -70,7 +76,7 @@ export default {
 			return this.question.discussion
 		},
 		hasComments () {
-			return this.discussion.comments.length > 0
+			return this.discussion.timeline.length > 0
 		}
 	},
 
@@ -83,20 +89,57 @@ export default {
 						discussion(id: ${t.to.params.id}) {
 							id,
 							title,
-							owner {
-								id,
-								name,
-								handle
-							},
-							comments {
+							commentCount,
+							firstComment {
 								id,
 								createdAt,
-								contents,
 								owner {
-									name,
-									handle,
-									avatar {
-										url
+									id,
+									name
+								}
+							}
+							timeline {
+								... on Action {
+									id,
+									createdAt,
+									type,
+									count,
+									actee {
+										id,
+										name,
+										handle,
+										avatar {
+											url
+										}
+									},
+									actor {
+										id,
+										name,
+										handle,
+										avatar {
+											url
+										}
+									},
+									artifact {
+										id,
+										title
+									}
+								}
+								... on Artifact {
+									id,
+									title
+								}
+								... on Comment {
+									id,
+									createdAt,
+									contents,
+									owner {
+										id,
+										name,
+										handle,
+										avatar {
+											url
+										}
 									}
 								}
 							}
@@ -104,7 +147,7 @@ export default {
 					}
 				}
 			`).then(res => {
-				console.log(res)
+				console.log(res.question.discussion)
 				return res
 			})
 		}

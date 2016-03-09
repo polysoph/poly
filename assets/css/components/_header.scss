@@ -1,6 +1,8 @@
 
+$header-background: $blue-8;
+
 .header {
-	background: $blue-8;
+	background: $header-background;
 	padding: 12px 0;
 	color: #fff;
 }
@@ -37,25 +39,31 @@
 //
 
 .header-search {
+	background: $blue-9;
+	border-radius: $border-radius;
 	display: flex;
 	align-items: center;
 	margin-right: 32px;
-	background: $blue-9;
-	border-radius: $border-radius;
-	padding: 10px 4px 8px 12px;
+	padding: 0 4px 0 12px;
 	width: 250px;
 }
 
 .header-search-input {
-	@include no-appearance();
+	@include no-appearance;
+	position: relative;
+	top: -1px;
 	background: transparent;
-	color: $blue-3;
-	font-size: 13px;
+	padding: 13px 0 10px;
 	width: 100%;
+	color: $blue-3;
+	font-size: 14px;
+	letter-spacing: 0.01em;
 }
 
 .header-search-icon {
-	@include icon('search', 18px);
+	@include icon("search", 19px);
+	position: relative;
+	top: 2px;
 	background: $blue-4;
 	margin-right: 8px;
 }
@@ -78,12 +86,48 @@
 }
 
 //
+// Notifications
+//
+
+.header-notifications {
+	display: flex;
+	align-items: center;
+}
+
+.header-notifications--active {
+	.header-notifications-icon::after {
+		background: #c3c6d8;
+		border: 3px $header-background solid;
+		border-radius: 50%;
+		content: "";
+		position: absolute;
+		top: -4px;
+		right: -1px;
+		width: 12px;
+		height: 12px;
+	}
+	&::after {
+	}
+}
+
+.header-notifications-icon {
+	position: relative;
+	top: 3px;
+	&::before {
+		color: #6d707d;
+		font-size: 18px;
+		line-height: 0.8;
+	}
+}
+
+//
 // Profile
 //
 
 .header-profile {
 	display: flex;
 	align-items: center;
+	margin-left: 24px;
 }
 
 .header-profile-avatar {

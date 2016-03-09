@@ -2,18 +2,18 @@
 <template>
 	<div class="comment" id="comment-{{ comment.id }}">
 		<aside class="comment-aside">
-			<a v-link="{ name: 'user', params: { slug: comment.owner.handle }}" class="comment-avatar avatar">
+			<a v-link="linkToProfile" class="comment-avatar avatar">
 				<img :src="comment.owner.avatar.url" class="comment-avatar-image avatar-image" />
 			</a>
 		</aside>
 		<div class="comment-body">
 			<header class="comment-header">
-				<a class="comment-header-user" v-link="{ name: 'user', params: { slug: comment.owner.handle }}">
+				<a class="comment-header-user" v-link="linkToProfile">
 					<div class="comment-header-user-name">{{ comment.owner.name }}</div>
 					<!-- <div class="comment-header-user-handle">@{{ comment.owner.handle }}</div> -->
 				</a>
 				<div class="comment-header-metadata">
-					<a class="comment-header-metadata-timestamp" href="#comment-{{ comment.id }}">{{ comment.timestamp | date 'MMM D' }}</a>
+					<a class="comment-header-metadata-timestamp" href="#comment-{{ comment.id }}" tooltip :title="comment.createdAt | date 'h:mma MMM D, Y'">{{ comment.createdAt | date 'MMM D' }}</a>
 				</div>
 			</header>
 			<section class="comment-contents" v-html="comment.contents | markdown"></section>
@@ -33,6 +33,15 @@ export default {
 		comment: {
 			type: Object,
 			required: true
+		}
+	},
+
+	computed: {
+		linkToProfile () {
+			return { name: 'user', params: { slug: this.comment.owner.handle }}
+		},
+		isOwner () {
+			return false
 		}
 	},
 

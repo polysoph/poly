@@ -1,37 +1,111 @@
 
 //
-// Question Discussion(s)
+// Question Discussions (Index)
 //
 
 .question-discussion-preview {
-	&:not(:first-child) {
-		border-top: 1px $gray-2 solid;
-	}
+	// &:not(:first-child) {
+		border-bottom: 1px $gray-2 solid;
+	// }
 }
 
+.question-discussions-new-button {
+	margin-left: auto;
+}
+
+//
+// Question Discussions (Single)
+//
+
+
 .question-discussion-content {
-	@include column-content();
+}
+
+.question-discussion-subview {
+	border-bottom: 1px #f2f2f2 solid;
+	margin-bottom: 24px;
+	padding-bottom: 12px;
 }
 
 .question-discussion-title {
 	font-size: 24px;
-	margin-bottom: 14px;
+	// margin-bottom: 14px;
 }
 
-// .question-timeline-artifact,
-// .question-timeline-checkpoint {
-// 	margin-bottom: 36px;
-// 	padding-top: 36px;
-// 	padding-left: 96px;
-// 	&:not(:first-child) {
-// 		border-top: 2px #f9f9f9 solid;
-// 	}
-// }
+.question-discussion-subtitle {
+	color: #777;
+	font-size: 13px;
+}
+
+.question-discussions-prompt {
+	display: flex;
+	align-items: stretch;
+	border-radius: 4px;
+	background: lighten($green, 30%);
+	color: #555;
+	font-size: 13px;
+	margin-bottom: 18px;
+	&-text {
+		align-self: center;
+		padding: 0 15px;
+	}
+	&-icon {
+		display: flex;
+		align-items: center;
+		background: rgb(155, 227, 187);
+		color: #fff;
+		padding: 12px 15px;
+		border-top-left-radius: 4px;
+		border-bottom-left-radius: 4px;
+		text-align: center;
+		&::before {
+			@include ss-icon;
+			position: relative;
+			top: 3px;
+			left: 1px;
+			content: '';
+			font-size: 15px;
+		}
+	}
+}
+
+.question-discussion-timeline {
+	@include column-content;
+	position: relative;
+	&::before {
+		background: #f2f2f2;
+		content: "";
+		position: absolute;
+		left: 86px;
+		width: 2px;
+		height: 100%;
+	}
+}
+
+.question-timeline-action {
+	background: #fff;
+	position: relative;
+	z-index: 2;
+	margin: 32px 0;
+}
+
+.question-timeline-action + .question-timeline-comment {
+	margin-top: 36px;
+}
+
+.question-timeline-comment {
+	position: relative;
+	z-index: 2;
+	margin: 0 0 24px;
+	// border-top: 1px #f2f2f2 solid;
+}
 
 .question-discussion-prompt {
 	background: #f2f2f2;
 	border-radius: $border-radius;
 	margin-top: 48px;
+	margin-left: 64px;
+	max-width: 600px - 64px;
 	padding: 16px;
 	font-family: $sans-serif;
 	font-size: 13px;
@@ -39,9 +113,4 @@
 	a {
 		color: $blue;
 	}
-}
-
-.question-discussion-comment {
-	padding-top: 24px;
-	border-top: 1px #f2f2f2 solid;
 }

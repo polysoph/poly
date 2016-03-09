@@ -1,0 +1,99 @@
+
+.discussion-action {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: baseline;
+	padding-left: 124px;
+	color: #666;
+	font-size: 12px;
+	&::before {
+		@include ss-icon;
+		content: ' ';
+		background: #f2f2f2;
+		border-radius: 50%;
+		outline: 6px solid #fff;
+		position: absolute;
+		top: 50%;
+		left: 48px + 23px;
+		margin-top: -16px;
+		width: 32px;
+		height: 32px;
+		font-size: 14px;
+		line-height: 36px;
+		text-align: center;
+		vertical-align: middle;
+	}
+	&--share::before {
+		content: "";
+		font-size: 13px;
+		text-indent: -0.08em;
+	}
+	&--reference::before { content: '🔖'; }
+	&--add::before {
+		content: '✎';
+		font-size: 12px;
+	}
+	&--resolve::before {
+		content: '✓';
+		font-size: 11px;
+	}
+	&--unresolve::before {
+		content: '↺';
+		font-size: 11px;
+	}
+}
+
+.discussion-action-by-line {
+	display: flex;
+	align-items: baseline;
+}
+
+.discussion-action-actor {
+	display: flex;
+	align-items: baseline;
+	color: #444;
+}
+
+.discussion-action-actor {
+	padding: 0 0.15em 0 0;
+	&:hover {
+		opacity: 0.7;
+	}
+}
+
+.discussion-action-actor-image {
+	border-radius: 4px;
+	overflow: hidden;
+	margin-right: 6px;
+	max-width: 18px;
+}
+
+.discussion-action-actor-name {
+	font-weight: bold;
+}
+
+.discussion-action-help-text {
+	display: flex;
+	padding: 0 0.25em;
+}
+
+.discussion-action-actee {
+	padding: 0 0.25em 0 0.55em;
+}
+
+.discussion-action-created-at {
+	border-bottom: 1px transparent solid;
+	margin-left: 0.35em;
+	line-height: 1.35;
+	cursor: pointer;
+	&:hover {
+		border-bottom: 1px #ccc solid;
+	}
+}
+
+.discussion-action-subject {
+	margin-top: 4px;
+	font-size: 15px;
+	font-weight: bold;
+}

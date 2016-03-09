@@ -16,7 +16,8 @@
 				</nav>
 			</div>
 			<div class="header-user">
-				<div clas="header-notifications">
+				<div class="header-notifications header-notifications--active">
+					<i class="header-notifications-icon s-icon ss-notifications"></i>
 				</div>
 				<a class="header-profile" v-link="{ name: 'user', params: { slug: currentUser.handle }}">
 					<div class="header-profile-avatar">

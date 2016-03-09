@@ -6,6 +6,7 @@
 .question-content-wrapper {
 	@include wrapper();
 	display: flex;
+	position: relative;
 }
 
 .question-subview {
@@ -46,14 +47,15 @@
 	display: flex;
 	color: #555;
 	font-size: 13px;
-	font-weight: bold;
+	font-weight: 500;
 }
 
 .question-subview-filter-category {
 	margin-right: 14px;
 	padding-bottom: 6px;
 	&-count {
-		padding-right: 1px;
+		padding-left: 4px;
+		opacity: 0.5;
 	}
 	&.is-active {
 		border-bottom: 2px $green solid;

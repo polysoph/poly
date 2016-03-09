@@ -1,23 +1,41 @@
 
 .comment {
 	display: flex;
-	margin: 0 0 24px;
 }
 
 .comment-aside {
 	flex: 0 1 auto;
-	margin-right: 24px;
+	margin-right: 16px;
+}
+
+.comment-avatar {
+	&:hover {
+		opacity: 0.8;
+	}
+}
+
+@supports (position: sticky) {
+	.comment-avatar {
+		position: sticky;
+		top: 50px;
+	}
 }
 
 .comment-body {
 	display: flex;
+	flex: 1;
 	flex-direction: column;
+	padding: 16px;
+	background: #fff;
+	border: 1px #f2f2f2 solid;
+	border-radius: 3px;
 }
 
 .comment-header {
 	display: flex;
 	align-items: center;
-	margin-bottom: 6px;
+	justify-content: space-between;
+	margin-bottom: 12px;
 	font-family: $sans-serif;
 }
 
@@ -29,7 +47,7 @@
 
 .comment-header-user-name {
 	margin-right: 3px;
-	font-size: 15px;
+	font-size: 13px;
 	font-weight: bold;
 }
 
@@ -39,6 +57,8 @@
 }
 
 .comment-header-metadata {
+	display: flex;
+	align-items: baseline;
 	margin-left: 12px;
 	line-height: 1.0;
 }
@@ -46,6 +66,9 @@
 .comment-header-metadata-timestamp {
 	color: #999;
 	font-size: 13px;
+	.tlite {
+		width: 130px;
+	}
 }
 
 .comment-contents {

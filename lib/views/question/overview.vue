@@ -6,7 +6,7 @@
 		</main>
 		<aside class="question-overview-sidebar">
 			<div class="question-overview-sidebar-contribute question-overview-sidebar-section">
-				<a class="question-overview-sidebar-contribute-button" v-link="{ name: 'question:tasks' }">Join Project</a>
+				<a class="question-overview-sidebar-contribute-button" v-link="{ name: 'question:discussions', query: { prompt: true } }" :class="{ 'question-overview-sidebar-contribute-button--joined': isContributor }">{{ joinButtonPrompt }}</a>
 				<div class="question-overview-sidebar-contribute-status">This project is actively seeking contributions from non-members.</div>
 			</div>
 			<div class="question-overview-sidebar-metrics question-overview-sidebar-section">
@@ -29,7 +29,7 @@
 						<a class="user-profile user-profile--medium" v-link="{ name: 'user', params: { slug: user.handle }}" v-for="user in question.owners">
 							<div class="user-profile-avatar"><img :src="user.avatar.url" /></div>
 							<div class="user-profile-details">
-								<div class="user-profile-handle">{{ user.handle }}</div>
+								<div class="user-profile-handle">{{ user.name }}</div>
 								<div class="user-profile-institution">{{ user.institution }}</div>
 							</div>
 						</a>
@@ -42,7 +42,7 @@
 					</div>
 					<div class="question-overview-sidebar-people-list">
 						<a class="user-profile user-profile--avatar-only" v-link="{ name: 'user', params: { slug: user.handle }}" v-for="user in question.contributors">
-							<div class="user-profile-avatar"><img :src="user.avatar.url" /></div>
+							<div class="user-profile-avatar" tooltip :title="user.name"><img :src="user.avatar.url" /></div>
 						</a>
 					</div>
 				</div>
@@ -56,6 +56,9 @@
 <script>
 
 import db from '../../db'
+import store from '../../store'
+
+import _ from 'lodash'
 
 export default {
 	name: 'QuestionOverviewView',
@@ -70,6 +73,23 @@ export default {
 				owners: [],
 				contributors: []
 			}
+		}
+	},
+
+	computed: {
+		isContributor () {
+			const user = store.state.user
+			const isOwner = this.question.owners.some(u => u.id === user.id)
+			const isParticipant = this.question.contributors.some(u => u.id === user.id)
+			if (isOwner) return true
+			if (isParticipant) return true
+			return false
+		},
+		joinButtonPrompt () {
+			if (this.isContributor) {
+				return 'Joined Project'
+			}
+			return 'Join Project'
 		}
 	},
 

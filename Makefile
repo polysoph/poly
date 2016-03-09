@@ -31,7 +31,7 @@ build: assets styles scripts
 watch: install styles
 	@true & \
 		onchange 'assets/**/*.{woff,ttf,jpg,png,gif}' -- make assets & \
-		onchange 'index.html' 'public/**/*.json' -- make assets & \
+		onchange 'index.html' 'assets/images/**/*' -- make assets & \
 		onchange 'assets/**/*.scss' -- make styles & \
 		budo index.js:build/assets/bundle.js --live --pushstate \
 			--host $(HOST) \
@@ -64,7 +64,7 @@ clean-deps:
 #
 
 install: node_modules
-assets: build/favicon.png build/index.html build/public/ build/assets/fonts/ build/assets/images/
+assets: build/favicon.png build/index.html build/assets/fonts/ build/assets/images/
 styles: build/assets/bundle.css
 scripts: build/assets/bundle.js
 

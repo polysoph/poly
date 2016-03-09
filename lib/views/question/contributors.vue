@@ -1,18 +1,28 @@
 
 <template>
 	<div class="question-contributors">
-		<header class="question-subview-header">
-			<div class="question-subview-masthead">
-				<div class="question-subview-title">Contributions <span class="question-subview-title-help ss-icon ss-help" tooltip title="Comments, artifacts, tasks, and other forms of interaction"></span></div>
+		<header class="question-contributors-header question-subview-header">
+			<div class="question-contributors-masthead question-subview-masthead">
+				<div class="question-contributors-title question-subview-title">Contributors <span class="question-subview-title-help ss-icon ss-help" tooltip title="Comments, artifacts, tasks, and other interactions"></span></div>
+				<div class="question-contributors-note">{{ question.contributions.length }} contributions</div>
 			</div>
 		</header>
 		<div class="question-contributors-global">
-			<line-chart class="question-contributors-global-chart" :contributions="question.contributions" :loading="$loadingRouteData"></line-chart>
+			<line-chart class="question-contributors-global-chart" :contributions="question.contributions" :start-date="startDate" :end-date="endDate" :loading="$loadingRouteData"></line-chart>
 		</div>
 		<div class="question-contributors-list">
-			<a v-link="{ name: 'user', params: { slug: contributor.handle }}" class="avatar" v-for="contributor in question.contributors">
-				<img :src="contributor.avatar.url" class="avatar-image" />
-			</a>
+			<div class="question-contributor-preview" v-for="contributor in sortedPeople">
+				<header class="question-contributor-preview-header">
+					<a class="question-contributor-preview-avatar" v-link="contributor.handle | linkToProfile">
+						<img class="question-contributor-preview-avatar-image" :src="contributor.avatar.url" />
+					</a>
+					<div class="question-contributor-preview-header-details">
+						<a class="question-contributor-preview-user-name" v-link="contributor.handle | linkToProfile">{{ contributor.name }}</a>
+						<span class="question-contributor-preview-contribution-count">{{ getContributionCountForUser(contributor.id) }} {{ getContributionCountForUser(contributor.id) | pluralize 'contribution' }}</span>
+					</div>
+				</header>
+				<!-- <bar-chart class="question-contributor-preview-chart" :contributions="getContributionsForUser(contributor.id)" :loading="$loadingRouteData"></bar-chart> -->
+			</div>
 		</div>
 	</div>
 </template>
@@ -22,11 +32,13 @@
 import db from '../../db'
 
 import LineChart from '../../components/charts/line.vue'
+import BarChart from '../../components/charts/bar.vue'
 
 export default {
 	name: 'QuestionContributorsView',
 
 	components: {
+		BarChart,
 		LineChart
 	},
 
@@ -35,8 +47,31 @@ export default {
 			question: {
 				id: '',
 				contributions: [],
-				contributors: []
+				people: []
 			}
+		}
+	},
+
+	methods: {
+		getContributionsForUser (id) {
+			const contributions = this.question.contributions
+				.filter(contribution => contribution.owner.id === id)
+			return contributions
+		},
+		getContributionCountForUser (id) {
+			return this.getContributionsForUser(id).length
+		}
+	},
+
+	computed: {
+		startDate () {
+			return new Date(this.question.createdAt)
+		},
+		endDate () {
+			return new Date(this.question.lastUpdatedAt)
+		},
+		sortedPeople () {
+			return this.question.people
 		}
 	},
 
@@ -46,17 +81,18 @@ export default {
 				query {
 					question(slug: "${t.to.params.slug}") {
 						id,
+						createdAt,
+						lastUpdatedAt,
 						contributions {
 							id,
-							createdAt
+							createdAt,
+							owner { id }
 						},
-						contributors {
+						people {
 							id,
 							name,
 							handle,
-							avatar {
-								url
-							}
+							avatar { url }
 						}
 					}
 				}

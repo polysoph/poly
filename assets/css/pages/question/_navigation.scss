@@ -3,10 +3,17 @@
 // Question Nav
 //
 
-.question-nav {
-	@include flex-column();
+.question-nav,
+.question-nav-fill {
 	flex: 0 0 120px;
 	margin-right: 60px;
+}
+
+.question-nav {
+	@include flex-column();
+	position: sticky;
+	top: 50px;
+	align-self: flex-start;
 }
 
 .question-nav-group {

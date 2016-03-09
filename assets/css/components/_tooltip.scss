@@ -8,8 +8,10 @@
   letter-spacing: normal;
   text-decoration: none;
   text-align: center;
-  width: 240px;
-  padding: 10px 12px 11px;
+  max-width: 290px;
+  min-width: none;
+  width: auto;
+  padding: 8px 9px 7px;
   white-space: normal;
   border-radius: 4px;
   position: absolute;
@@ -17,6 +19,9 @@
   visibility: hidden;
   pointer-events: none;
   -webkit-font-smoothing: subpixel-antialiased;
+  .question-subview-title-help & {
+    width: 290px;
+  }
 }
 
 .tlite-visible {

@@ -1,10 +1,35 @@
 
 .line-chart {
-	background: lighten($blue, 20%);
+	background: #f2f2f2;
 	border-radius: 4px;
 }
 
-.line-chart .line {
-	fill: none;
-	stroke: #fff;
+.line-chart-svg {
+	.line {
+		fill: none;
+		stroke: #777;
+		stroke-width: 2;
+	}
+
+
+	.x-axis {
+		.domain {
+			fill: none;
+			stroke: #d8d8d8;
+			stroke-width: 2;
+		}
+		.tick {
+			stroke: none;
+		}
+		text {
+			fill: #999;
+			font-size: 11px;
+		}
+		.tick:first-child text {
+			text-anchor: start;
+		}
+		.tick:nth-child(2) text {
+			text-anchor: end;
+		}
+	}
 }

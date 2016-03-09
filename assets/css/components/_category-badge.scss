@@ -1,6 +1,6 @@
 
 .category-badge {
-	$size: 28px;
+	$size: 24px;
 	border-radius: 50%;
 	display: flex;
 	align-items: center;
@@ -20,7 +20,7 @@
 }
 
 .category-badge--mathematics::before {
-	@include icon("category-mathematics", 22px);
+	@include icon("category-mathematics", 18px);
 }
 
 .category-badge--computer-science::before {

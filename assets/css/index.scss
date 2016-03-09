@@ -10,6 +10,7 @@
 @import "partials/vanilla";
 @import "partials/base";
 @import "partials/math";
+@import "partials/animations";
 
 @import "vendor/katex";
 
@@ -25,9 +26,12 @@
 @import "components/line-chart";
 @import "components/tooltip";
 
+@import "components/artifact-preview";
 @import "components/discussion-preview";
+@import "components/milestone-preview";
 @import "components/question-preview";
 
+@import "components/action";
 @import "components/artifact";
 @import "components/comment";
 @import "components/checkpoint";

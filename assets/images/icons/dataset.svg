@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.6.1 (26313) - http://www.bohemiancoding.com/sketch -->
+    <title>dataset</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="dataset" stroke="#7ABEE0" stroke-width="2">
+            <path d="M38.1421356,32.0701197 L24,40.4892916 L9.85786438,32.0701197 L24,23.6509478 L38.1421356,32.0701197 Z" id="Rectangle-244"></path>
+            <path d="M38.1421356,24.0701197 L24,32.4892916 L9.85786438,24.0701197 L24,15.6509478 L38.1421356,24.0701197 Z" id="Rectangle-244" fill="#FFFFFF"></path>
+            <path d="M38.1421356,16.0701197 L24,24.4892916 L9.85786438,16.0701197 L24,7.65094782 L38.1421356,16.0701197 Z" id="Rectangle-244" fill="#7ABEE0"></path>
+        </g>
+    </g>
+</svg>

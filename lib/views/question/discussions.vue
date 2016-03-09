@@ -4,11 +4,18 @@
 			<div class="question-discussions-masthead question-subview-masthead">
 				<div class="question-subview-title">Discussions <span class="question-subview-title-help ss-icon ss-help" tooltip title="Discussions are a way to frame your problem and keep everyone up-to-date on progress that gets made."></span></div>
 				<!-- <input class="question-subview-search" placeholder="Search" /> -->
-				<a v-link="{ name: 'question:discussion:new' }">New Discussion</a>
 			</div>
+			<a class="question-discussions-prompt"
+				v-show="$route.query.prompt === 'true'"
+				v-link="{ name: 'question:discussions' }"
+				transition="fade">
+				<span class="question-discussions-prompt-icon"></span>
+				<span class="question-discussions-prompt-text">Looking to contribute? Below are some ongoing discussions that we'd love input into.</span>
+			</a>
 			<div class="question-discussions-filter-bar question-subview-filter-bar">
-				<a v-link="{ name: 'question:discussions', activeClass: 'no-op' }" :class="{ 'is-active': isFilteringOpen }" class="question-subview-filter-category"><span class="question-subview-filter-category-count">{{ openDiscussionCount }}</span> Ongoing</a>
-				<a v-link="{ name: 'question:discussions', query: { status: 'resolved' }, activeClass: 'no-op' }" :class="{ 'is-active': isFilteringResolved }" class="question-subview-filter-category"><span class="question-subview-filter-category-count">{{ resolvedDiscussionCount }}</span> Resolved</a>
+				<a v-link="{ name: 'question:discussions', activeClass: 'no-op' }" :class="{ 'is-active': isFilteringOpen }" class="question-subview-filter-category">Ongoing <span class="question-subview-filter-category-count">{{ openDiscussionCount }}</span></a>
+				<a v-link="{ name: 'question:discussions', query: { status: 'resolved' }, activeClass: 'no-op' }" :class="{ 'is-active': isFilteringResolved }" class="question-subview-filter-category">Resolved <span class="question-subview-filter-category-count">{{ resolvedDiscussionCount }}</span></a>
+				<a v-link="{ name: 'question:discussion:new' }" class="question-discussions-new-button new-button">New Discussion</a>
 			</div>
 		</header>
 		<main class="question-discussions-content">
@@ -82,6 +89,7 @@ export default {
 							participants {
 								id,
 								handle,
+								name,
 								avatar {
 									url
 								}
@@ -89,6 +97,7 @@ export default {
 							owner {
 								id,
 								handle,
+								name,
 								avatar {
 									url
 								}

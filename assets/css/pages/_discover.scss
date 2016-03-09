@@ -1,12 +1,40 @@
 
 .discover-page {
-	@include wrapper();
+}
+
+.discover-summary {
+	background: #141414;
+	padding: 96px 0;
+	color: #fff;
+}
+
+.discover-summary-wrapper {
+	@include wrapper;
+	text-align: center;
+}
+
+.discover-summary-headline {
+	// max-width: 500px;
+	font-family: 'Px Grotesk';
+	font-size: 36px;
+	line-height: 1.1;
+	margin-bottom: 0.5em;
+}
+
+.discover-summary-subheadline {
+	max-width: 400px;
+	margin: 0 auto;
+	color: #aaa;
+	font-size: 14px;
+}
+
+.discover-content {
+	@include wrapper;
+	padding: 48px 0;
 }
 
 .discover-questions {
-	@include column-content();
-
-	column-count: 2;
+	column-count: 3;
 	column-gap: 24px;
 }
 

@@ -10,7 +10,59 @@
 	margin-bottom: 12px;
 }
 
+.question-contributors-masthead {
+	align-items: baseline;
+}
+
+.question-contributors-note {
+	color: #555;
+	font-size: 13px;
+}
+
 .question-contributors-global {
 	width: 100%;
 	margin-bottom: 24px;
+	// .line-chart {
+	// 	background: lighten($blue, 20%);
+	// 	.line {
+	// 		stroke: #fff;
+	// 	}
+	// }
+}
+
+.question-contributors-list {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.question-contributor-preview {
+	flex: 1 0 25%;
+	margin-bottom: 12px;
+}
+
+.question-contributor-preview-header {
+	display: flex;
+	align-items: flex-start;
+}
+
+.question-contributor-preview-header-details {
+	display: flex;
+	flex-direction: column;
+}
+
+.question-contributor-preview-avatar {
+	@include avatar(32px);
+	margin-right: 8px;
+}
+
+.question-contributor-preview-user-name {
+	color: $blue;
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 1.3;
+}
+
+.question-contributor-preview-contribution-count {
+	color: #777;
+	font-size: 12px;
 }

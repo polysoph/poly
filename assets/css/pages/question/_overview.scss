@@ -18,6 +18,13 @@
 	line-height: 1.4;
 	margin-bottom: 1em;
 	width: 95%;
+	a {
+		color: $blue;
+		&:hover {
+			line-height: 1.2;
+			border-bottom: 1px lighten($blue, 20%) solid;
+		}
+	}
 }
 
 .question-overview-content-description {
@@ -51,6 +58,16 @@
 	text-align: center;
 	&:hover {
 		background: darken($green, 10%);
+	}
+	&--joined::before {
+		@include ss-icon;
+		content: '✓';
+		position: relative;
+		top: 1px;
+		font-size: 10px;
+		margin-right: 6px;
+		vertical-align: middle;
+		opacity: 0.75;
 	}
 }
 

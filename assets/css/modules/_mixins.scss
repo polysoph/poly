@@ -31,11 +31,39 @@
  */
 
 @mixin icon ($url, $size: 20px) {
-	mask-image: url('/assets/icons/#{$url}.svg');
+	mask-image: url('/assets/images/icons/#{$url}.svg');
 	mask-repeat: no-repeat;
 	mask-size: contain;
 	width: $size;
 	height: $size;
+}
+
+@mixin avatar ($size: 32px) {
+	display: block;
+	background: #f2f2f2;
+	border-radius: 4px;
+	overflow: hidden;
+	width: $size;
+	height: $size;
+	position: relative;
+	&-image {
+		position: absolute;
+	}
+}
+
+@mixin ss-icon {
+	font-family: "SSStandard";
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: none;
+	text-rendering: optimizeLegibility;
+	white-space: nowrap;
+	-moz-font-feature-settings: "liga=1";
+	-moz-font-feature-settings: "liga";
+	-ms-font-feature-settings: "liga" 1;
+	-o-font-feature-settings: "liga";
+	font-feature-settings: "liga";
+	-webkit-font-smoothing: antialiased;
 }
 
 @mixin badge-count {

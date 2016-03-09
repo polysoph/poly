@@ -12,6 +12,7 @@
 .question-header-wrapper {
 	@include wrapper();
 	display: flex;
+	align-items: center;
 }
 
 .question-header-details {
@@ -22,8 +23,8 @@
 .question-header-category {
 	display: flex;
 	align-items: center;
-	margin: 0 0 36px;
 	font-size: 12px;
+	font-weight: bold;
 }
 
 .question-header-category-badge {

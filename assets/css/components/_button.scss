@@ -28,11 +28,30 @@
 }
 
 //
+// New Button
+//
+
+.new-button {
+	align-items: center;
+	font-size: 13px;
+	font-weight: 500;
+	&::before {
+		@include ss-icon;
+		align-self: center;
+		content: '+';
+		font-size: 7px;
+		margin-right: 6px;
+		vertical-align: middle;
+	}
+}
+
+//
 // Follow Button
 //
 
 .follow-button,
-.cite-button {
+.cite-button,
+.share-button {
 	display: flex;
 	align-items: center;
 	color: #fff;
@@ -43,13 +62,17 @@
 	justify-content: center;
 }
 
-.cite-button {
+.cite-button,
+.share-button {
 	display: flex;
 	align-items: center;
 	color: #fff;
-	background: #4C4D53;
+	background: $blue-8;
 	border-radius: 4px;
 	padding: 8px 16px;
+	&:hover {
+		background: lighten($blue-8, 5%);
+	}
 }
 
 .follow-button {
@@ -64,5 +87,13 @@
 		border-top-right-radius: 4px;
 		border-bottom-right-radius: 4px;
 		padding: 8px 12px 8px 10px;
+	}
+	&:hover {
+		.follow-button-text {
+			background: lighten($blue-8, 5%);
+		}
+		.follow-button-number {
+			background: lighten(#4C4D53, 5%);
+		}
 	}
 }
