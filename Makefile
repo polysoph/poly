@@ -25,7 +25,7 @@ BRANCH  = $(shell git rev-parse --abbrev-ref HEAD)
 # Tasks
 #
 
-build: assets styles scripts
+build: node_modules assets styles scripts
 	@true
 
 watch: install styles
