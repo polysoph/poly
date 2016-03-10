@@ -18,7 +18,7 @@ SCRIPTS     = $(shell find lib -type f -name '*.js' -o -name '*.vue')
 
 BROWSERIFY_OPTS = -t vueify -t babelify -t [ partialify --alsoAllow svg ] -t envify
 
-DOMAIN  = polysoph-staging.surge.sh
+DOMAIN  = staging.poly.sh
 BRANCH  = $(shell git rev-parse --abbrev-ref HEAD)
 
 #
