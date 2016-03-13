@@ -6,8 +6,6 @@
 
 <script>
 
-import url from 'component-url'
-
 export default {
 	name: 'Artifact',
 
