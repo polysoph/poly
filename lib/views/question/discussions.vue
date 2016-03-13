@@ -71,7 +71,7 @@ export default {
 		resolvedDiscussionCount () {
 			const resolved = this.question.discussions.filter(d => d.status === 'RESOLVED')
 			return resolved.length
-		},
+		}
 	},
 
 	route: {

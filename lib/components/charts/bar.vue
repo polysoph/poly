@@ -7,8 +7,6 @@
 
 <script>
 
-import d3 from 'd3'
-
 export default {
 	name: 'BarChart',
 
@@ -37,10 +35,6 @@ export default {
 				setTimeout(() => this.render(), 50)
 				return
 			}
-
-			const svg = d3.select(this.$els.svg)
-			const data = this.contributions.concat()
-
 		},
 		resize () {
 			const svg = this.$els.svg

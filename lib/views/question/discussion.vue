@@ -54,7 +54,7 @@ export default {
 	components: {
 		Action,
 		Artifact,
-		Comment,
+		Comment
 	},
 
 	data () {

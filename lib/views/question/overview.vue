@@ -58,8 +58,6 @@
 import db from '../../db'
 import store from '../../store'
 
-import _ from 'lodash'
-
 export default {
 	name: 'QuestionOverviewView',
 

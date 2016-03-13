@@ -8,11 +8,9 @@
 
 <script>
 
-import router from './router'
-import store from './store'
-
 import tooltip from 'tlite'
 
+import store from './store'
 import AppHeader from './components/header.vue'
 
 export default {

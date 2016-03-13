@@ -29,8 +29,6 @@
 
 <script>
 
-import url from 'component-url'
-
 export default {
 	name: 'ArtifactPreview',
 
@@ -66,16 +64,18 @@ export default {
 		},
 		sourceName () {
 			const hostname = this.artifact.source.hostname
+			let result
 			switch (hostname) {
 				case 'docs.google.com':
-					return 'Google Docs'
+					result = 'Google Docs'
 					break
 				case 'arxiv.org':
-					return 'ArXiv'
+					result = 'ArXiv'
 					break
 				default:
-					return hostname
+					result = hostname
 			}
+			return result
 		},
 		iconUrl () {
 			return `/assets/images/icons/${this.artifact.type}.svg`

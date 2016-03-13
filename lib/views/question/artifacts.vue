@@ -59,7 +59,6 @@ export default {
 			return this.$route.query.type
 		},
 		filteredArtifacts () {
-			const artifacts = this.question.artifacts.concat()
 			const filterType = this.filterType
 			const filtered = this.getArtifactsByType(filterType)
 			const sorted = filtered.sort(sortByLastUpdated)

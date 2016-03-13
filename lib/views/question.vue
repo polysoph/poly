@@ -54,11 +54,8 @@
 <script>
 
 import db from '../db'
-import store from '../store'
 
 import CategoryBadge from '../components/category-badge.vue'
-
-const unique = arr => [...(new Set(arr))]
 
 export default {
 	name: 'QuestionView',

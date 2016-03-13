@@ -46,18 +46,19 @@ export default {
 			let result
 			switch (this.action.type) {
 				case 'add':
-					return wrap(`added ${this.action.count} rows to spreadsheet`)
+					result = wrap(`added ${this.action.count} rows to spreadsheet`)
 					break
 				case 'reference':
-					return wrap(`referenced a paper`)
+					result = wrap(`referenced a paper`)
 					break
 				case 'share':
-					return wrap(`added ${this.action.actee} a spreadsheet with`)
+					result = wrap(`added ${this.action.actee} a spreadsheet with`)
 					break
 				default:
-					return wrap(`performed an action`)
+					result = wrap(`performed an action`)
 					break
 			}
+			return result
 		}
 	}
 }
