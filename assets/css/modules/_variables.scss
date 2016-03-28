@@ -1,7 +1,8 @@
 
-/**
- * Colors
- */
+//
+// Colors
+//
+
 $background-html: #fff;
 $background-body: #fff; // #e3e7e9
 
@@ -20,18 +21,26 @@ $blue-9: #26272d;
 
 $green: #50D894;
 
+$gradient-orange: linear-gradient(-180deg, #B80F76 0%, #F87F2C 100%);
+$gradient-purple: linear-gradient(-195deg, #238CE8 0%, #B77EED 100%);
+$gradient-purple-faded: linear-gradient(-195deg, rgba(#238CE8, 0.9) 0%, rgba(#B77EED, 0.95) 100%);
+$gradient-green: linear-gradient(-195deg, #238CE8 0%, #7eedbb 100%);
+$gradient-green-faded: linear-gradient(-195deg, rgba(#238CE8, 0.9) 0%, rgba(#7eedbb, 0.95) 100%);
+
 $color-body-text: $gray-8;
 
-/**
- * Typography
- */
+//
+// Typography
+//
+
+$px-grotesk: 'Px Grotesk', 'Helvetica Neue', Arial, sans-serif;
 $serif: 'Tiempos', serif;
 $sans-serif: 'Helvetica Neue', Arial, sans-serif;
 $monospace: 'Monaco', Menlo, monospace;
 
-/**
- * Measurements
- */
+//
+// Measurements
+//
 
 $wrapper-width: 1008px;
 $content-width: 600px;

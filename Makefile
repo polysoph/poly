@@ -16,7 +16,7 @@ NODE_ENV  ?= development
 STYLES      = $(shell find assets -type f -name '*.scss')
 SCRIPTS     = $(shell find lib -type f -name '*.js' -o -name '*.vue')
 
-BROWSERIFY_OPTS = -t vueify -t babelify -t [ partialify --alsoAllow svg ] -t envify
+BROWSERIFY_OPTS = -t vueify -t babelify -t [ partialify --alsoAllow svg --alsoAllow md ] -t envify
 
 DOMAIN  = staging.poly.sh
 BRANCH  = $(shell git rev-parse --abbrev-ref HEAD)
@@ -28,15 +28,16 @@ BRANCH  = $(shell git rev-parse --abbrev-ref HEAD)
 build: node_modules assets styles scripts
 	@true
 
-watch: install styles
+watch: install styles assets scripts
 	@true & \
 		onchange 'assets/**/*.{woff,ttf,jpg,png,gif}' -- make assets & \
 		onchange 'index.html' 'assets/images/**/*' -- make assets & \
 		onchange 'assets/**/*.scss' -- make styles & \
-		budo index.js:build/assets/bundle.js --live --pushstate \
+		wtch 'build/**/*.css' | garnish & \
+		budo index.js:build/assets/bundle.js --pushstate \
 			--host $(HOST) \
 			--port $(PORT) \
-			--css build/assets/bundle.css -- $(BROWSERIFY_OPTS) & \
+			--css build/assets/bundle.css -- $(BROWSERIFY_OPTS) -p browserify-hmr & \
 		wait
 
 deploy:
@@ -66,7 +67,7 @@ clean-deps:
 install: node_modules
 assets: build/favicon.png build/index.html build/assets/fonts/ build/assets/images/
 styles: build/assets/bundle.css
-scripts: build/assets/bundle.js
+scripts: build/assets/bundle.js build/assets/three.js
 
 #
 # Targets

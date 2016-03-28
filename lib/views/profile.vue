@@ -44,9 +44,6 @@ export default {
 	},
 
 	route: {
-		canActivate () {
-			return false
-		},
 		data (t) {
 			return db(`
 				query {

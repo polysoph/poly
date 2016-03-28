@@ -1,7 +1,7 @@
 
-/**
- * Shared sizing
- */
+//
+// Shared Sizing
+//
 
 @mixin wrapper {
 	margin: 0 auto;
@@ -26,9 +26,9 @@
 	flex-direction: column;
 }
 
-/**
- * Component
- */
+//
+// Components
+//
 
 @mixin icon ($url, $size: 20px) {
 	mask-image: url('/assets/images/icons/#{$url}.svg');
@@ -70,9 +70,9 @@
 	// TODO
 }
 
-/**
- * Special States
- */
+//
+// Special States
+//
 
 @mixin no-appearance {
 	border: none;

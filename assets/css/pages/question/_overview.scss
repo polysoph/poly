@@ -32,7 +32,8 @@
 }
 
 .question-overview-sidebar {
-	flex: 1 0 200px;
+	flex: 1 0 auto;
+	max-width: 204px;
 	font-family: $sans-serif;
 }
 
@@ -142,4 +143,34 @@
 
 .question-overview-sidebar-people-header-count {
 	color: $gray-4;
+}
+
+.question-overview-sidebar-keywords-header {
+	margin-bottom: 12px;
+}
+
+.question-overview-sidebar-keywords-header-title {
+	color: $gray-6;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.question-overview-sidebar-keywords-list {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.question-overview-sidebar-keyword {
+	background: #f2f2f2;
+	border-radius: 2px;
+	padding: 4px 6px 3px;
+	margin: 0 6px 6px 0;
+	margin-right: 6px;
+	color: #666;
+	font-size: 11px;
+	white-space: nowrap;
+	&:hover {
+		background: #e2e2e2;
+		color: #555;
+	}
 }

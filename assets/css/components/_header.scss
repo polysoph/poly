@@ -16,6 +16,7 @@ $header-background: $blue-8;
 .header-content {
 	@include flex-space-between();
 	align-items: center;
+	min-height: 40px;
 }
 
 .header-user {
@@ -31,7 +32,10 @@ $header-background: $blue-8;
 	display: flex;
 	align-items: center;
 	margin-right: 24px;
-	max-width: 24px;
+	max-width: 48px;
+	&:hover {
+		opacity: 0.6;
+	}
 }
 
 //
@@ -73,13 +77,20 @@ $header-background: $blue-8;
 //
 
 .header-nav {
-	color: $blue-3;
-	font-size: 12px;
-	font-weight: bold;
+
+}
+
+.header-user-nav {
+	display: flex;
+	align-items: center;
+	margin-right: 24px;
 }
 
 .header-nav-link {
 	margin-right: 18px;
+	color: $blue-3;
+	font-size: 12px;
+	font-weight: bold;
 	&:hover {
 		color: darken($blue-4, 10%);
 	}
@@ -137,4 +148,57 @@ $header-background: $blue-8;
 .header-profile-avatar img {
 	@include no-drag();
 	border-radius: $border-radius;
+}
+
+//
+// CTA
+//
+
+.header-cta {
+	display: flex;
+}
+
+.header-cta-button {
+	display: flex;
+	border-radius: 4px;
+	background: darken($header-background, 5%);
+	align-items: center;
+	padding: 0.4em 1.25em;
+	color: lighten($header-background, 50%);
+	font-size: 13px;
+	font-weight: bold;
+	margin-left: 1em;
+}
+
+//
+// Home page
+//
+
+.header--home {
+	position: absolute;
+	background: transparent;
+	left: 0;
+	right: 0;
+	z-index: 9;
+
+	.header-nav-link {
+		color: rgba(#fff, 0.7);
+	}
+
+	.header-cta-button {
+		background: rgba(#fff, 0.2);
+		color: #fff;
+	}
+	.header-cta-button:hover {
+		background: #fff;
+		color: $blue;
+	}
+	.header-cta-button--dark {
+		border: 1px rgba(#fff, 0.2) solid;
+		background: transparent;
+	}
+	.header-cta-button--dark:hover {
+		background: rgba(#fff, 0.05);
+		color: #fff;
+	}
 }

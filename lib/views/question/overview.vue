@@ -14,7 +14,7 @@
 					<span class="question-overview-sidebar-metrics-block-number">{{ question.milestoneCount }}</span>
 					<span class="question-overview-sidebar-metrics-block-label">Milestones</span>
 				</a>
-				<a class="question-overview-sidebar-metrics-block" href="#!">
+				<a class="question-overview-sidebar-metrics-block" v-link="{ name: 'question:contributors' }">
 					<span class="question-overview-sidebar-metrics-block-number">{{ question.citationCount }}</span>
 					<span class="question-overview-sidebar-metrics-block-label">Citations</span>
 				</a>
@@ -36,10 +36,10 @@
 					</div>
 				</div>
 				<div class="question-overview-sidebar-people-contributors question-overview-sidebar-people-group">
-					<div class="question-overview-sidebar-people-header">
+					<header class="question-overview-sidebar-people-header">
 						<div class="question-overview-sidebar-people-header-label">Contributors</div>
 						<div class="question-overview-sidebar-people-header-count">{{ question.contributors.length }}</div>
-					</div>
+					</header>
 					<div class="question-overview-sidebar-people-list">
 						<a class="user-profile user-profile--avatar-only" v-link="{ name: 'user', params: { slug: user.handle }}" v-for="user in question.contributors">
 							<div class="user-profile-avatar" tooltip :title="user.name"><img :src="user.avatar.url" /></div>
@@ -48,6 +48,12 @@
 				</div>
 			</div>
 			<div class="question-overview-sidebar-keywords question-overview-sidebar-section">
+				<header class="question-overview-sidebar-keywords-header">
+					<div class="question-overview-sidebar-keywords-header-title">Keywords</div>
+				</header>
+				<div class="question-overview-sidebar-keywords-list">
+					<a class="question-overview-sidebar-keyword" href="#!" v-for="keyword in question.keywords" @click.prevent>{{ keyword.title }}</a>
+				</div>
 			</div>
 		</aside>
 	</div>
@@ -69,7 +75,8 @@ export default {
 				milestoneCount: 0,
 				citationCount: 0,
 				owners: [],
-				contributors: []
+				contributors: [],
+				keywords: []
 			}
 		}
 	},
@@ -116,10 +123,18 @@ export default {
 							avatar {
 								url
 							}
+						},
+						keywords {
+							id,
+							title,
+							slug
 						}
 					}
 				}
-			`)
+			`).then(res => {
+				console.log(res)
+				return res
+			})
 		}
 	}
 }

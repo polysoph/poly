@@ -1,0 +1,69 @@
+
+$browser-frame-color: #eaeaea;
+$browser-frame-height: 24px;
+$browser-button-size: 8px;
+
+$browser-button-red: rgb(252, 99, 94);
+$browser-button-yellow: rgb(253, 191, 70);
+$browser-button-green: rgb(42, 204, 79);
+
+.browser {
+	position: relative;
+	padding-top: $browser-frame-height;
+}
+
+.browser-frame {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: $browser-frame-height;
+	z-index: 2;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	background: $browser-frame-color;
+}
+
+.browser-content {
+	overflow: hidden;
+	background: #fff;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+
+.browser-buttons {
+
+	top: $browser-frame-height / 2;
+	left: $browser-button-size * 1.5;
+	margin-top: -$browser-button-size / 2;
+	margin-left: -$browser-button-size / 2;
+
+	&,
+	&::before,
+	&::after {
+		position: absolute;
+		width: $browser-button-size;
+		height: $browser-button-size;
+		background: #fff;
+		border-radius: 50%;
+	}
+
+	&::before,
+	&::after {
+		content: ' ';
+	}
+
+	& {
+		background: $browser-button-red;
+	}
+
+	&::before {
+		background: $browser-button-yellow;
+		left: $browser-button-size * 1.75;
+	}
+
+	&::after {
+		background: $browser-button-green;
+		left: $browser-button-size * 3.5;
+	}
+}

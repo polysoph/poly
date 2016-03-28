@@ -14,7 +14,7 @@
 						on
 						<span class="question-discussion-created-at">{{ discussion.firstComment.createdAt | date 'MMM D, Y'}}</span>
 						•
-						<span class="question-discussion-count">{{ discussion.commentCount }} comments</span>
+						<span class="question-discussion-count">{{ discussion.commentCount }} {{ discussion.commentCount | pluralize 'comment' }}</span>
 					</div>
 				</div>
 			</header>

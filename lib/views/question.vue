@@ -24,7 +24,6 @@
 		</header>
 		<section class="question-content">
 			<div class="question-content-wrapper">
-				<!-- <div class="question-nav-fill">&nbsp;</div> -->
 				<nav class="question-nav">
 					<div class="question-nav-group">
 						<a class="question-nav-link" v-link="{ name: 'question:overview', exact: true }">Question</a>
@@ -89,10 +88,7 @@ export default {
 						hasTasksEnabled
 					}
 				}
-			`).then(res => {
-				console.log(res)
-				return res
-			})
+			`)
 		}
 	}
 

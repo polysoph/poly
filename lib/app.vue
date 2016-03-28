@@ -10,6 +10,7 @@
 
 import tooltip from 'tlite'
 
+import config from './config'
 import store from './store'
 import AppHeader from './components/header.vue'
 
@@ -30,6 +31,7 @@ export default {
 	},
 
 	ready () {
+		document.title = config.name
 		tooltip(el => {
 			if (!el.hasAttribute('tooltip')) return false
 			return { grav: 's' }

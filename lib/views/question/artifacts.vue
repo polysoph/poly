@@ -3,9 +3,6 @@
 		<header class="question-artifacts-header question-subview-header">
 			<div class="question-artifacts-masthead question-subview-masthead">
 				<div class="question-artifacts-title question-subview-title">Artifacts <span class="question-subview-title-help ss-icon ss-help" tooltip title="Files, documents, datasets, papers or prior works related to the object of study."></span></div>
-				<div class="question-artifacts-actions">
-					<a href="#!">Add new Artifact</a>
-				</div>
 			</div>
 			<div class="question-artifacts-filter-bar question-subview-filter-bar">
 				<a v-link="{ name: 'question:artifacts', activeClass: 'no-op' }" :class="{ 'is-active': isFiltering('all') }" class="question-subview-filter-category">Everything</a>
@@ -81,10 +78,7 @@ export default {
 						}
 					}
 				}
-			`).then(res => {
-				console.log(res)
-				return res
-			})
+			`)
 		}
 	}
 }

@@ -1,21 +1,23 @@
 <template>
-	<header class="header">
+	<header class="header" :class="{ 'header--home': isHome }">
 		<div class="header-wrapper">
 			<div class="header-content">
-				<a v-link="{ path: '/' }" class="header-logo">
+				<a v-link="{ name: 'home' }" class="header-logo">
 					<img src="/assets/images/mark.svg" alt="Polysoph" />
 				</a>
-				<div class="header-search">
+				<div class="header-search" v-if="!isHome">
 					<div class="header-search-icon"></div>
 					<input class="header-search-input" type="text" placeholder="Search" />
 				</div>
 				<nav class="header-nav">
-					<a class="header-nav-link" v-link="{ path: '/#!' }">Feed</a>
 					<a class="header-nav-link" v-link="{ name: 'discover' }">Discover</a>
-					<a class="header-nav-link" v-link="{ path: '/#!' }">Contribute</a>
+					<a class="header-nav-link" v-link="{ name: 'publish' }">Start a Project</a>
 				</nav>
 			</div>
-			<div class="header-user">
+			<div class="header-user" v-if="!isHome">
+				<nav class="header-user-nav">
+					<a class="header-nav-link" v-link="{ name: 'feed' }" v-if="!isHome">Feed</a>
+				</nav>
 				<div class="header-notifications header-notifications--active">
 					<i class="header-notifications-icon s-icon ss-notifications"></i>
 				</div>
@@ -25,7 +27,9 @@
 					</div>
 				</a>
 			</div>
-		</div>
+			<div class="header-cta" v-if="isHome">
+				<a v-link="{ name: 'login' }" class="header-cta-button header-cta-button--dark">Log in</a>
+			</div>
 	</header>
 </template>
 
@@ -39,6 +43,9 @@ export default {
 	computed: {
 		currentUser () {
 			return store.state.user
+		},
+		isHome () {
+			return this.$route.name === 'home'
 		}
 	}
 }
