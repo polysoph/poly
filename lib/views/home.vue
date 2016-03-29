@@ -3,7 +3,7 @@
 		<section class="home-introduction home-section" v-el:introduction>
 			<div class="home-introduction-content">
 				<h1 class="home-introduction-headline">Better research, together.</h1>
-				<p class="home-introduction-details"><span class="faded">{{ name }} is a platform to</span><strong> organize</strong><span class="faded">, </span><strong> collaborate on</strong><span class="faded">, and</span><strong> publish</strong><span class="faded"> research about the world's most challenging scientific problems.</span></p>
+				<p class="home-introduction-details">{{ name }} is a platform to <strong>organize</strong>, <strong>collaborate on</strong>, and <strong>publish</strong> research about the world's most challenging scientific problems.</p>
 				<div class="home-introduction-cta">
 					<div class="home-introduction-cta-buttons">
 						<a v-link="{ name: 'discover' }" class="home-button">Explore Projects</a>
@@ -36,8 +36,8 @@
 		<section class="home-features-intro home-section">
 			<div class="home-section-wrapper">
 				<div class="home-features-why">
-					<h5>Future of Science</h5>
-					<h1>Why Research on Polysoph?</h1>
+					<h5>Why Polysoph?</h5>
+					<h1>Modern Research Tools</h1>
 				</div>
 			</div>
 		</section>
@@ -61,7 +61,7 @@
 			<div class="home-features-callout">
 				<browser>
 					<img v-show="currentFeature === 'collaboration'" src="http://polysoph-assets.s3.amazonaws.com/assets/collaboration.png" />
-					<img v-show="currentFeature === 'review'" src="http://polysoph-assets.s3.amazonaws.com/assets/collaboration.png" />
+					<img v-show="currentFeature === 'review'" src="http://polysoph-assets.s3.amazonaws.com/assets/review.png" />
 					<img v-show="currentFeature === 'citation'" src="http://polysoph-assets.s3.amazonaws.com/assets/metrics.png" />
 				</browser>
 			</div>
@@ -69,13 +69,12 @@
 		<section class="home-funding home-section">
 			<div class="home-section-wrapper">
 				<div class="home-funding-logos">
-					<a href="#!" class="home-funding-logo" target="_blank"><img src="http://polysoph-assets.s3.amazonaws.com/funders/noao.svg" /></a>
+					<a href="http://noao.edu" class="home-funding-logo" target="_blank"><img src="http://polysoph-assets.s3.amazonaws.com/funders/noao.svg" /></a>
 					<a href="http://nsf.gov" class="home-funding-logo" target="_blank"><img src="http://polysoph-assets.s3.amazonaws.com/funders/nsf.svg" /></a>
-					<a href="#!" class="home-funding-logo" target="_blank"><img src="http://polysoph-assets.s3.amazonaws.com/funders/nserc.svg" /></a>
-					<a href="#!" class="home-funding-logo" target="_blank"><img src="http://polysoph-assets.s3.amazonaws.com/funders/nih.svg" /></a>
-					<a href="#!" class="home-funding-logo" target="_blank"><img src="http://polysoph-assets.s3.amazonaws.com/funders/noaa.svg" /></a>
-					<a href="#!" class="home-funding-logo" target="_blank"><img src="http://polysoph-assets.s3.amazonaws.com/funders/cihr.svg" /></a>
-					<div class="home-funding-logos-more">+ many more</div>
+					<a href="http://www.nserc-crsng.gc.ca/index_eng.asp" class="home-funding-logo" target="_blank"><img src="http://polysoph-assets.s3.amazonaws.com/funders/nserc.svg" /></a>
+					<a href="http://www.nih.gov/" class="home-funding-logo" target="_blank"><img src="http://polysoph-assets.s3.amazonaws.com/funders/nih.svg" /></a>
+					<a href="http://www.noaa.gov/" class="home-funding-logo" target="_blank"><img src="http://polysoph-assets.s3.amazonaws.com/funders/noaa.svg" /></a>
+					<a href="http://www.cihr-irsc.gc.ca/e/193.html" class="home-funding-logo" target="_blank"><img src="http://polysoph-assets.s3.amazonaws.com/funders/cihr.svg" /></a>
 				</div>
 				<div class="home-funding-content">
 					<h1>Open Grants</h1>

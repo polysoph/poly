@@ -38,12 +38,15 @@ export default {
 
 	computed: {
 		avatarUrl () {
-			if (!this.user || !this.user.avatar || !this.user.avatar.url) return 'http://polysoph-assets.s3.amazonaws.com/default.jpg'
+			if (!this.user || !this.user.avatar || !this.user.avatar.url) return 'http://polysoph-assets.s3.amazonaws.com/profiles/default.jpg'
 			return this.user.avatar.url
 		}
 	},
 
 	route: {
+		canActivate () {
+			return false
+		},
 		data (t) {
 			return db(`
 				query {
