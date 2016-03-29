@@ -1,5 +1,36 @@
 
 //
+// PX Grotesk
+//
+
+@font-face {
+  font-family: 'Px Grotesk';
+  font-weight: 300;
+  font-style: normal;
+  src: url('/assets/fonts/PxGroteskWeb-Light.woff') format('woff'),
+       url('/assets/fonts/PxGroteskWeb-Light.ttf') format('truetype'),
+       url('/assets/fonts/PxGroteskWeb-Light.svg#font') format('svg');
+}
+
+@font-face {
+  font-family: 'Px Grotesk';
+  font-weight: normal;
+  font-style: normal;
+  src: url('/assets/fonts/PxGroteskWeb-Regular.woff') format('woff'),
+       url('/assets/fonts/PxGroteskWeb-Regular.ttf') format('truetype'),
+       url('/assets/fonts/PxGroteskWeb-Regular.svg#font') format('svg');
+}
+
+@font-face {
+  font-family: 'Px Grotesk';
+  font-weight: bold;
+  font-style: normal;
+  src: url('/assets/fonts/PxGroteskWeb-Bold.woff') format('woff'),
+       url('/assets/fonts/PxGroteskWeb-Bold.ttf') format('truetype'),
+       url('/assets/fonts/PxGroteskWeb-Bold.svg#font') format('svg');
+}
+
+//
 // Tiempos
 //
 

@@ -1,4 +1,8 @@
 
+.discover-question {
+	max-width: 320px;
+}
+
 .discover-question-header {
 	background: #777;
 	border-top-left-radius: $border-radius;
@@ -7,7 +11,7 @@
 	flex-direction: column;
 	justify-content: space-between;
 	padding: 16px;
-	min-height: 150px;
+	min-height: 140px;
 	color: #fff;
 
 	.discover-question--computer-science & {
@@ -19,19 +23,26 @@
 	.discover-question--mathematics & {
 		background: $color-mathematics;
 	}
+	.discover-question--biology & {
+		background: $color-biology;
+	}
 }
 
 .discover-question-category {
 	display: flex;
 	align-items: center;
 	margin-bottom: 12px;
-	font-size: 13px;
-	font-weight: 500;
+	font-size: 12px;
+	font-weight: bold;
 
 	&-badge {
 		position: relative;
 		top: -1px;
 		margin-right: 8px;
+	}
+
+	&:hover {
+		opacity: 0.8;
 	}
 }
 
@@ -40,6 +51,10 @@
 	font-size: 18px;
 	font-weight: 500;
 	line-height: 1.35;
+	width: 90%;
+	&:hover {
+		opacity: 0.8;
+	}
 }
 
 .discover-question-body {

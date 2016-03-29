@@ -88,7 +88,10 @@ export default {
 						hasTasksEnabled
 					}
 				}
-			`)
+			`).then(res => {
+				console.log(res)
+				return res
+			})
 		}
 	}
 

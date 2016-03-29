@@ -30,12 +30,12 @@
 // Components
 //
 
-@mixin icon ($url, $size: 20px) {
-	mask-image: url('/assets/images/icons/#{$url}.svg');
-	mask-repeat: no-repeat;
-	mask-size: contain;
-	width: $size;
-	height: $size;
+@mixin icon ($url, $width: 20px, $height: $width) {
+	background-image: url('/assets/images/icons/#{$url}.svg');
+	background-repeat: no-repeat;
+	// background-size: contain;
+	width: $width;
+	height: $height;
 }
 
 @mixin avatar ($size: 32px) {

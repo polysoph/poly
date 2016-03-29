@@ -2,8 +2,8 @@
 	<div class="home">
 		<section class="home-introduction home-section" v-el:introduction>
 			<div class="home-introduction-content">
-				<h1 class="home-introduction-headline">Do better research, together.</h1>
-				<p class="home-introduction-details"><span class="faded">{{ name }} is a platform to </span><strong>organize</strong><span class="faded">, </span><strong>collaborate on</strong><span class="faded">, and </span><strong>publish</strong> research <span class="faded"> about the world's most challenging scientific problems.</span></p>
+				<h1 class="home-introduction-headline">Better research, together.</h1>
+				<p class="home-introduction-details"><span class="faded">{{ name }} is a platform to</span><strong> organize</strong><span class="faded">, </span><strong> collaborate on</strong><span class="faded">, and</span><strong> publish</strong><span class="faded"> research about the world's most challenging scientific problems.</span></p>
 				<div class="home-introduction-cta">
 					<div class="home-introduction-cta-buttons">
 						<a v-link="{ name: 'discover' }" class="home-button">Explore Projects</a>
@@ -16,49 +16,85 @@
 		<section class="home-summary home-section">
 			<div class="home-section-wrapper">
 				<div class="home-summary-text">
-					<h1>Open Notebook Research</h1>
-					<p>{{ name }} enables the whole research process to be conducted in the open. Researchers get more exposure, and readers can learn from others' process, not just their end results.</p>
-					<a href="#!" class="home-button">See All</a>
+					<h5>Open Notebook Science</h5>
+					<h1>Learn from Others</h1>
+					<p>{{ name }} research is conducted entirely in the open. Researchers get more exposure, and readers can learn from others' process, not just their end results.</p>
+					<a v-link="{ name: 'about' }" class="home-button">Learn More</a>
 				</div>
 				<div class="home-summary-questions">
-					<header class="home-summary-questions-header">
-						<h3>Popular Questions</h3>
-						<div class="home-summary-questions-header-period">
-							This week
-						</div>
-					</header>
 					<div class="home-summary-questions-list">
-						<div class="question-preview" v-for="question in featuredQuestions">
-							<div class="question-preview-title">{{ question.title }}</div>
-							<div class="question-preview-summary" v-html="question.summary | markdown"></div>
+						<div class="column">
+							<question-preview v-for="question in featuredQuestionsColumnA" :question="question"></question-preview>
+						</div>
+						<div class="column">
+							<question-preview v-for="question in featuredQuestionsColumnB" :question="question"></question-preview>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
-		<section class="home-questions">
+		<section class="home-features-intro home-section">
 			<div class="home-section-wrapper">
-				<nav class="home-questions-nav questions-nav">
-				</nav>
-				<div class="home-questions-list">
-					<question-preview :question="question" v-for="question in questions" data-open="true"></question-preview>
+				<div class="home-features-why">
+					<h5>Future of Science</h5>
+					<h1>Why Research on Polysoph?</h1>
 				</div>
 			</div>
 		</section>
-		<section class="home-publish">
-			<p>Looking to publish your own research?</p>
-			<a v-link="{ name: 'publish' }">Join the Private Beta</a>
-		</section>
-		<section class="home-sign-up home-section">
-			<a v-link="{ name: 'join' }">Join Now</a>
-		</section>
-		<footer class="home-footer">
-			<div class="home-footer-column">
-
+		<section class="home-features home-section">
+			<div class="home-section-wrapper">
+				<div class="home-features-list">
+					<a class="home-feature home-feature--collaboration" href="#!" :class="{ 'home-feature--active': currentFeature === 'collaboration' }" @click.prevent="currentFeature = 'collaboration'">
+						<h4>Powerful Collaboration</h4>
+						<p>Work with experts around the world, discuss ideas and share artifacts, from papers to data sets.</p>
+					</a>
+					<a class="home-feature home-feature--review" href="#!"  :class="{ 'home-feature--active': currentFeature === 'review' }" @click.prevent="currentFeature = 'review'">
+						<h4>Peer-review, whenever</h4>
+						<p>Request feedback from experts in the scientific community at any point in time.</p>
+					</a>
+					<a class="home-feature home-feature--citation" href="#!"  :class="{ 'home-feature--active': currentFeature === 'citation' }" @click.prevent="currentFeature = 'citation'">
+						<h4>Citation and Viewership Metrics</h4>
+						<p>All contributions are assigned DOIs. Learn who's contributing to, reading, and citing your work.</p>
+					</a>
+				</div>
 			</div>
-			<div class="home-footer-column">
+			<div class="home-features-callout">
+				<browser>
+					<img v-show="currentFeature === 'collaboration'" src="http://polysoph-assets.s3.amazonaws.com/assets/collaboration.png" />
+					<img v-show="currentFeature === 'review'" src="http://polysoph-assets.s3.amazonaws.com/assets/collaboration.png" />
+					<img v-show="currentFeature === 'citation'" src="http://polysoph-assets.s3.amazonaws.com/assets/metrics.png" />
+				</browser>
 			</div>
-		</footer>
+		</section>
+		<section class="home-funding home-section">
+			<div class="home-section-wrapper">
+				<div class="home-funding-logos">
+					<a href="#!" class="home-funding-logo" target="_blank"><img src="http://polysoph-assets.s3.amazonaws.com/funders/noao.svg" /></a>
+					<a href="http://nsf.gov" class="home-funding-logo" target="_blank"><img src="http://polysoph-assets.s3.amazonaws.com/funders/nsf.svg" /></a>
+					<a href="#!" class="home-funding-logo" target="_blank"><img src="http://polysoph-assets.s3.amazonaws.com/funders/nserc.svg" /></a>
+					<a href="#!" class="home-funding-logo" target="_blank"><img src="http://polysoph-assets.s3.amazonaws.com/funders/nih.svg" /></a>
+					<a href="#!" class="home-funding-logo" target="_blank"><img src="http://polysoph-assets.s3.amazonaws.com/funders/noaa.svg" /></a>
+					<a href="#!" class="home-funding-logo" target="_blank"><img src="http://polysoph-assets.s3.amazonaws.com/funders/cihr.svg" /></a>
+					<div class="home-funding-logos-more">+ many more</div>
+				</div>
+				<div class="home-funding-content">
+					<h1>Open Grants</h1>
+					<p>With partnerships from major grant providers like the <a href="http://nsf.gov/" target="_blank">NSF</a>, <a href="http://noao.edu" target="_blank">NAOA</a>, and many others, {{ name }} gives you more opportunity for proposing and funding your research.</p>
+					<a href="#!" class="home-button" @click.prevent>View Open Grants</a>
+				</div>
+			</div>
+		</section>
+		<!-- <section class="home-integrations home-section">
+			<div class="home-section-wrapper">
+				<h2>Integrations with your favourite tools</h2>
+				<p>{{ name }} makes it easy to work as you'd like, by connecting with platforms like <a href="https://www.google.com/docs/about/" target="_blank">Google Docs</a>, <a href="https://www.overleaf.com/" target="_blank">Overleaf</a>, <a href="https://authorea.com/" target="_blank">Authorea</a>, <a href="https://zenodo.org/" target="_blank">Zenodo</a>, and <a href="#!">many more</a>.</p>
+			</div>
+		</section> -->
+		<section class="home-join home-section">
+			<div class="home-section-wrapper">
+				<a v-link="{ name: 'question', params: { slug: 'dhj-theorem' }}" class="home-button">Join Now</a>
+			</div>
+		</section>
 	</div>
 </template>
 <script>
@@ -78,6 +114,7 @@ export default {
 
 	data () {
 		return {
+			currentFeature: 'collaboration',
 			questions: [],
 			wave: null
 		}
@@ -87,8 +124,13 @@ export default {
 		name () {
 			return config.name
 		},
-		featuredQuestions () {
-			return this.questions.slice(0, 3)
+		featuredQuestionsColumnA () {
+			var a = this.questions.filter(q => q.id === 0)
+			return a
+		},
+		featuredQuestionsColumnB () {
+			var b = this.questions.filter(q => q.id === 1 || q.id === 2)
+			return b
 		}
 	},
 
@@ -100,6 +142,7 @@ export default {
 						id,
 						title,
 						summary,
+						status,
 						slug,
 						category {
 							id,

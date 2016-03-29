@@ -1,17 +1,13 @@
 
 .category-badge {
 	$size: 24px;
-	border-radius: 50%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	line-height: 1.0;
-	width: $size;
-	height: $size;
 }
 
 .category-badge::before {
-	background: #fff;
 	content: "";
 	display: block;
 	position: relative;
@@ -20,11 +16,11 @@
 }
 
 .category-badge--mathematics::before {
-	@include icon("category-mathematics", 18px);
+	@include icon("category-mathematics", 15px, 13px);
 }
 
 .category-badge--computer-science::before {
-	@include icon("category-computer-science", 22px);
+	@include icon("category-computer-science", 14px);
 }
 
 .category-badge--physics::before {
@@ -32,5 +28,9 @@
 }
 
 .category-badge--astronomy::before {
-	@include icon("category-astronomy", 22px);
+	@include icon("category-astronomy", 18px);
+}
+
+.category-badge--biology::before {
+	@include icon("category-biology", 16px);
 }

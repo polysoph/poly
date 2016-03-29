@@ -2,11 +2,11 @@
 <template>
 	<article class="discover-question discover-question--{{ question.category.slug }}">
 		<header class="discover-question-header">
-			<div class="discover-question-category">
+			<a class="discover-question-category" v-link="{ name: 'discover:discipline', params: { discipline: question.category.slug }}">
 				<category-badge class="discover-question-category-badge" :category="question.category.slug"></category-badge>
 				<div class="discover-question-category-title">{{ question.category.title }}</div>
-			</div>
-			<div class="discover-question-title">{{ question.title }}</div>
+			</a>
+			<a v-link="{ name: 'question', params: { slug: question.slug } }" class="discover-question-title">{{ question.title }}</a>
 		</header>
 		<section class="discover-question-body">
 			<div class="discover-question-contents">

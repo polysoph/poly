@@ -5,14 +5,6 @@
 		<p>Want in? Submit a project.</p>
 		<a v-link="{ name: 'submit' }" class="publish-button">Explore Projects</a>
 	</section>
-
-	<section class="publish-funding publish-section">
-		<div class="publish-section-wrapper">
-			<h2>Open Problems and Open Grants</h2>
-			<p>By partnering with major grant providers like the <a href="http://nsf.gov/" target="_blank">NSF</a>, <a href="http://noao.edu" target="_blank">NAOA</a>, and others, {{ name }} gives you more opportunity for proposing and funding your research.</p>
-			<a href="#!">Browse Open Grants</a>
-		</div>
-	</section>
 	<section class="publish-features publish-section">
 		<div class="publish-section-wrapper">
 			<div class="publish-features-why">
@@ -39,6 +31,13 @@
 			<browser>
 				<img src="https://placeholdit.imgix.net/~text?bg=444444&w=800&h=600" />
 			</browser>
+		</div>
+	</section>
+	<section class="publish-funding publish-section">
+		<div class="publish-section-wrapper">
+			<h2>Open Problems and Open Grants</h2>
+			<p>By partnering with major grant providers like the <a href="http://nsf.gov/" target="_blank">NSF</a>, <a href="http://noao.edu" target="_blank">NAOA</a>, and others, {{ name }} gives you more opportunity for proposing and funding your research.</p>
+			<a href="#!">Browse Open Grants</a>
 		</div>
 	</section>
 	<section class="publish-integrations home-section">

@@ -30,6 +30,13 @@
 .question-header-category-badge {
 	background: $color-mathematics;
 	margin-right: 1em;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	&::before {
+		top: 2px;
+		left: -1px;
+	}
 }
 
 .question-header-category-divider {
