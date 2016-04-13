@@ -86,9 +86,9 @@ But despite this awareness, there hasn't been much progress. This project is by 
 
 <aside><p class="offset-one">Or, in this case, something to publish.</p></aside>
 
-Lets say you were trapped on a desert island. It has been weeks, and you're desparately hungry, but you're struggling to <span class="highlight">find something to eat and survive with</span>. Then, out of nowhere, someone pops out of the woods and approaches you with something in their hands. As much as you'd like it to be food, it's actually a chess board. Do you sit down and play chess with them?
+Lets say you were trapped on a desert island. It has been weeks, and you're desperately hungry, but you're struggling to <span class="highlight">find something to eat and somewhere to live</span>. Then, out of nowhere, someone pops out of the woods and approaches you with something in their hands. As much as you'd like it to be food, it's actually a chess board. Do you sit down and play chess with them?
 
-Many existing platforms are seen as just that: a minor distraction from the survival aspect of science, writing papers.
+Many existing platforms are seen as just that: a distraction from the survival aspect of science, writing papers.
 
 
 
